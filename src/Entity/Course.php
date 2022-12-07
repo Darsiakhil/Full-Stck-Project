@@ -36,7 +36,7 @@ class Course
     private ?Review $review = null;
 
     #[ORM\ManyToOne(inversedBy: 'courses')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)]
     private ?Trainer $fk_trainer_id = null;
 
     public function getId(): ?int
