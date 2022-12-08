@@ -17,10 +17,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">HOME</a>
+          <a class="nav-link active" aria-current="page" href="/">HOME</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">COURSES</a>
+          <a class="nav-link" href="{{url('app_course_index')}}">COURSES</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#contact">CONTACT</a>
@@ -46,17 +46,23 @@
         #}
       </ul>
       <form class="d-flex" role="search">
-        {#
-        <input
+        
+        {# <input
           class="form-control me-2"
           type="search"
           placeholder="Search"
           aria-label="Search"
-        />
-        #}
-        <button class="btn btn-outline-dark me-2" type="button" onclick="window.location.href='/login'">Login</button>
+        /> #}
+       
 
-        <button class="btn btn-danger" type="button" onclick="window.location.href='/register'">Sign up</button>
+        {% if app.user %}
+          <button class="btn btn-outline-dark me-2" type="button" onclick="window.location.href='/logout'">Logout</button>
+
+        {% else %}
+
+          <button class="btn btn-outline-dark me-2" type="button" onclick="window.location.href='/login'">Login</button>
+          <button class="btn btn-danger" type="button" onclick="window.location.href='/register'">Sign up</button>
+        {% endif %}
       </form>
     </div>
   </div>

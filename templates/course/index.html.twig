@@ -10,21 +10,21 @@
             <tr>
                 <th>Id</th>
                 <th>Description</th>
-                <th>Start_date</th>
-                <th>End_date</th>
-                <th>Price</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Price €</th>
                 <th>Capacity</th>
                 <th>Available</th>
-                <th>actions</th>
-            </tr>
+                <th>Actions</th>
+                </tr>
         </thead>
         <tbody>
         {% for course in courses %}
             <tr>
                 <td>{{ course.id }}</td>
                 <td>{{ course.description }}</td>
-                <td>{{ course.startDate ? course.startDate|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ course.endDate ? course.endDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ course.startDate ? course.startDate|date('d.m.Y H:i') : '' }}</td>
+                <td>{{ course.endDate ? course.endDate|date('d.m.Y H:i') : '' }}</td>
                 <td>{{ course.price }}</td>
                 <td>{{ course.capacity }}</td>
                 <td>{{ course.available ? 'Yes' : 'No' }}</td>
