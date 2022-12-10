@@ -1,5 +1,6 @@
 .card {
     border: 0cm;
+    border-radius: 50px;
     background-color: #e8deed;
     padding: 0%;
     box-shadow: 5px 5px 3px 3px rgb(177, 145, 145);
@@ -7,6 +8,8 @@
 }
 
 .card-img-top {
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
     width: 100%;
     margin: 0cm;
 }
