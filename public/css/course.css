@@ -1,0 +1,19 @@
+.card {
+    border: 0cm;
+    background-color: #e8deed;
+    padding: 0%;
+    box-shadow: 5px 5px 3px 3px rgb(177, 145, 145);
+
+}
+
+.card-img-top {
+    width: 100%;
+    margin: 0cm;
+}
+
+.card:hover {
+    border: 0cm;
+    background-color: #d2bddb;
+    padding: 0%;
+    box-shadow: 5px 5px 5px 5px rgb(177, 145, 145);
+}
