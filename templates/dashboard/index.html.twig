@@ -21,9 +21,11 @@
             <p class="card-text"><b>  Start on :</b> {{ course.startDate ? course.startDate|date('Y-m-d H:i:s') : '' }}</p>
             <p class="card-text"><b>  End on :</b> {{ course.endDate ? course.endDate|date('Y-m-d H:i:s') : '' }}</p>
             <p class="card-text"> Price : {{ course.price }} € </p>
-            {# <div class="card-footer"> #}
+             <div class="card-footer">
+                <div class="text-foot"><b>Available : </b>{{ course.available ? 'Yes' : 'No' }}</div>
+                    <a href="{{ path('app_course_show', {'id': course.id}) }}">Details</a> 
 
-        </div> 
+             </div> 
          </div>  
         {% endfor %}
      </div> 
