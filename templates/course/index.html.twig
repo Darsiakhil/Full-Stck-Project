@@ -24,19 +24,20 @@
                 <span>
                 <a href="{{ path('app_course_show', {'id': course.id}) }}">Details</a>      
                 </span>
+                <button class="action btn btn-primary">
+                <a href="{{ path('app_course_edit', {'id': course.id}) }}">Edite</a>
+            </button>
+            <button class="action btn btn-danger">
+                <a href="{{ path('app_course_delete', {'id': course.id}) }}">Delete</a>
+            </button>
             </button>
             </button>
              <div class="card-footer">
                 <div class="text-foot"><b>Available : </b>{{ course.available ? 'Yes' : 'No' }}</div>
              </div> <hr>
-             <div class="action">
-             <button class="btn btn-primary">
-                <a href="{{ path('app_course_edit', {'id': course.id}) }}">Edite</a>
-            </button>
-            <button class="btn btn-danger">
-                <a href="{{ path('app_course_delete', {'id': course.id}) }}">Delete</a>
-            </button>
-             </div>
+             
+             
+             
          </div>  
         {% endfor %}
      </div> 
