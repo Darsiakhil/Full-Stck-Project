@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="0yEimYr9jU6wiKFB4wxG" name="Page-1">
-        <mxGraphModel grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" page="1" fold="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="638" dy="256" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -245,7 +245,7 @@
         </mxGraphModel>
     </diagram>
     <diagram name="Final 3NF" id="2OtO8bv-qZtuZQ2iz_R8">
-        <mxGraphModel dx="1182" dy="586" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="638" dy="256" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="JzVeKPisGOl--7V22q0f-0"/>
                 <mxCell id="JzVeKPisGOl--7V22q0f-1" parent="JzVeKPisGOl--7V22q0f-0"/>
