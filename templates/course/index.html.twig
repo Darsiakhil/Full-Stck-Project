@@ -1,18 +1,18 @@
 {% extends 'base.html.twig' %}
 {% block stylesheets %}
     <link rel="stylesheet" type="text/css" href="{{ asset ('css/course.css') }}" /> 
+  
 {% endblock %}
 {% block title %}Course index{% endblock %}
 
 {% block body %}
-    <h1>Course index</h1>
-
- <div class="container ">
+    <h1 style="text-align: center;"> Courses </h1>
+  {# <div class="container ">
      <div class="row row-cols-3 g-4"> 
         {% for course in courses %}
-            <div class="card" > 
+            <div class="card" >   #}
             {# <p class="card-header text-bg-secondary">  </p>  #}
-             <img src="{{ asset ('pictures/' ~ course.img ) }}"  class="card-img-top" alt="">
+             {# <img src="{{ asset ('pictures/' ~ course.img ) }}"  class="card-img-top" alt="">
             <div class="card-body" > 
             <h5 class="card-title">{{ course.name }}</h5><hr>
             <p class="card-text"><b>  Start on :</b> {{ course.startDate ? course.startDate|date('Y-m-d H:i:s') : '' }}</p>
@@ -34,12 +34,32 @@
                 <div class="text-foot"><b>Available : </b>{{ course.available ? 'Yes' : 'No' }}</div>
              </div> 
               
-         </div>  
+         </div> 
+         </div> 
         {% endfor %}
-     </div> 
-</div> 
+</div> <br>
+<div class="add">  
+<button class="action btn btn-primary">
+    <a href="{{ path('app_course_new') }}">Create new</a>
+    </button>
+    </div> 
+{% endblock %} #}
 
 
+<div class="container">
+    {% for course in courses %}
+  <div class="card">
+    <img src="{{ asset ('pictures/' ~ course.img ) }}"/>
+    <div class="card__content">
+      <h2 style="color: #321f3a;">{{ course.name }}</h2>
+      <p class="card-text"><b>  Start on :</b> {{ course.startDate ? course.startDate|date('Y-m-d H:i:s') : '' }}</p>
+            <p class="card-text"><b>  End on :</b> {{ course.endDate ? course.endDate|date('Y-m-d H:i:s') : '' }}</p>
+            <p class="card-text"> Price : {{ course.price }} € </p>
+      <a href="{{ path('app_course_show', {'id': course.id}) }}">Details</a>
+    </div>
+    {% endfor %}
+  </div>
+{% endblock %}
 
 
 
@@ -80,6 +100,3 @@
         {% endfor %}
         </tbody>
     </table> #}
-
-    <a href="{{ path('app_course_new') }}">Create new</a>
-{% endblock %}
