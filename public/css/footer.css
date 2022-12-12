@@ -1,6 +1,6 @@
 footer{
      text-align: center;
-    width: 100%; 
+        width: 100%; 
 }
 
 
@@ -75,7 +75,10 @@ form#contact button:hover {
     background-image: url(../pictures/footer-bg.png);
     background-repeat: no-repeat;
     background-position: center center;
-    background-size: cover;
+    /* background-size: cover; */
+}
+.contact-us#contact section{
+    width: 100%;
 }
 
 .contact-us .section-heading h2,

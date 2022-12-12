@@ -7,14 +7,12 @@
 {% block body %}
     <h1>Course index</h1>
 
-
-
-<div class="container ">
+ <div class="container ">
      <div class="row row-cols-3 g-4"> 
         {% for course in courses %}
-            <div class="card">
+            <div class="card" > 
             {# <p class="card-header text-bg-secondary">  </p>  #}
-            <img src="{{ asset ('pictures/' ~ course.img ) }}"  class="card-img-top" alt="">
+             <img src="{{ asset ('pictures/' ~ course.img ) }}"  class="card-img-top" alt="">
             <div class="card-body" > 
             <h5 class="card-title">{{ course.name }}</h5><hr>
             <p class="card-text"><b>  Start on :</b> {{ course.startDate ? course.startDate|date('Y-m-d H:i:s') : '' }}</p>
@@ -34,14 +32,12 @@
             </button>
              <div class="card-footer">
                 <div class="text-foot"><b>Available : </b>{{ course.available ? 'Yes' : 'No' }}</div>
-             </div> <hr>
-             
-             
-             
+             </div> 
+              
          </div>  
         {% endfor %}
      </div> 
-</div>
+</div> 
 
 
 

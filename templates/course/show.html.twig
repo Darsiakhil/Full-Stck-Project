@@ -1,11 +1,33 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Course{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset ('css/details.css') }}" /> 
+{% endblock %}
 
 {% block body %}
-    <h1>Course</h1>
+<div class="container ">
+    <h1>{{ course.name }}</h1>
+</div>
+<div class="grid-container">
+    <div class="grid-item  col-sm-8">
+        <img src="{{ asset ('pictures/' ~ course.img ) }}" class="img-fluid rounded-start" alt="..."> 
+     </div>
+     <div "grid-item">
+        
+     </div>
+</div>
+</div>
 
-    <table class="table">
+
+
+
+
+
+
+
+
+    {# <table class="table">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -36,9 +58,9 @@
                 <td>{{ course.available ? 'Yes' : 'No' }}</td>
             </tr>
         </tbody>
-    </table>
+    </table> #}
 
-    <a href="{{ path('app_course_index') }}">back to list</a>
+    {# <a href="{{ path('app_course_index') }}">back to list</a> #}
 
     <a href="{{ path('app_course_edit', {'id': course.id}) }}">edit</a>
 

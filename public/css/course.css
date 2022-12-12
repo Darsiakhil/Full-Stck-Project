@@ -19,7 +19,7 @@
     border: 0cm;
     background-color: #d2bddb;
     padding: 0%;
-    box-shadow: 5px 5px 5px 5px rgb(177, 145, 145);
+    box-shadow: 3px 3px 2px 2px rgb(177, 145, 145);
 }
 .text-foot{
     text-align: center;
@@ -77,3 +77,5 @@ text-align: center;
     text-decoration: none;
     color: #FFFFFF;
 }
+
+
