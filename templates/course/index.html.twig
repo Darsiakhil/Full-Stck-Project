@@ -6,7 +6,13 @@ block body %}
     {% for course in courses %}
     <div class="col-md-3 m-2">
       <div class="card" style="width: 18rem">
-        {# <img src="{{ course.picture }}" class="card-img-top" /> #}
+        {# <img src="{{ course.picture }}" class="card-img-top" /> #} {#
+        <img
+          src="{{ asset ('pictures/' ~ course.img ) }}"
+          class="card-img-top"
+          alt="{{ course.name }}"
+        />
+        #}
         <div class="card-body">
           <h5 class="card-title">{{ course.description }}</h5>
         </div>
