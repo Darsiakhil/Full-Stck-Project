@@ -50,8 +50,9 @@
     {% for course in courses %}
   <div class="card">
     <img src="{{ asset ('pictures/' ~ course.img ) }}"/>
+    <h2 style="color: #321f3a; text-align:center">{{ course.name }}</h2>
     <div class="card__content">
-      <h2 style="color: #321f3a;">{{ course.name }}</h2>
+      {# <h2 style="color: #321f3a;">{{ course.name }}</h2> #}
       <p class="card-text"><b>  Start on :</b> {{ course.startDate ? course.startDate|date('Y-m-d H:i:s') : '' }}</p>
             <p class="card-text"><b>  End on :</b> {{ course.endDate ? course.endDate|date('Y-m-d H:i:s') : '' }}</p>
             <p class="card-text"> Price : {{ course.price }} € </p>
