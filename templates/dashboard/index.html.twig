@@ -1,20 +1,82 @@
 {% extends 'base.html.twig' %}
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset ('css/course.css') }}" /> 
+{% endblock %}
+{% block title %}Course index{% endblock %}
 
-{% block title %}Hello DashboardController!{% endblock %}
+
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <h1>Course index</h1>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/Users/Arwa/OneDrive/سطح المكتب/sym/Full-Stck-Project/Full-Stck-Project/src/Controller/DashboardController.php'|file_link(0) }}">src/Controller/DashboardController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/Users/Arwa/OneDrive/سطح المكتب/sym/Full-Stck-Project/Full-Stck-Project/templates/dashboard/index.html.twig'|file_link(0) }}">templates/dashboard/index.html.twig</a></code></li>
-    </ul>
+<div class="container ">
+     <div class="row row-cols-3 g-4"> 
+        {% for course in courses %}
+            <div class="card">
+            {# <p class="card-header text-bg-secondary">  </p>  #}
+            <img src="{{ asset ('pictures/' ~ course.img ) }}"  class="card-img-top" alt="">
+            <div class="card-body" > 
+            <h5 class="card-title">{{ course.name }}</h5><hr>
+            <p class="card-text"><b>  Start on :</b> {{ course.startDate ? course.startDate|date('Y-m-d H:i:s') : '' }}</p>
+            <p class="card-text"><b>  End on :</b> {{ course.endDate ? course.endDate|date('Y-m-d H:i:s') : '' }}</p>
+            <p class="card-text"> Price : {{ course.price }} € </p>
+             <div class="card-footer">
+                <div class="text-foot"><b>Available : </b>{{ course.available ? 'Yes' : 'No' }}</div>
+                    <a href="{{ path('app_course_show', {'id': course.id}) }}">Details</a> 
+
+             </div> 
+         </div>  
+        {% endfor %}
+     </div> 
 </div>
+
+
+
+
+
+
+
+    {# <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Course</th>
+                <th>Description</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Price</th>
+                <th>Capacity</th>
+                <th>Available</th>
+                <th>photo</th>
+                <th>Actions</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+        {% for course in courses %}
+            <tr>
+                <td>{{ course.id }}</td>
+                 <td>{{ course.name }}</td>
+                <td>{{ course.description }}</td>
+                <td>{{ course.startDate ? course.startDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ course.endDate ? course.endDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ course.price }}</td>
+                <td>{{ course.capacity }}</td>
+                <td>{{ course.available ? 'Yes' : 'No' }}</td>
+                <td>{{ course.img }}</td>
+                <td>
+                    <a href="{{ path('app_course_show', {'id': course.id}) }}">Details</a>
+               </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table> #}
+
+    {# <a href="{{ path('app_course_new') }}">Create new</a> #}
 {% endblock %}
+

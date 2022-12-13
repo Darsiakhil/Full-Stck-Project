@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+    <h1>Course index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Description</th>
+                <th>Start_date</th>
+                <th>End_date</th>
+                <th>Price</th>
+                <th>Capacity</th>
+                <th>Available</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for course in courses %}
+            <tr>
+                <td>{{ course.description }}</td>
+                <td>{{ course.startDate ? course.startDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ course.endDate ? course.endDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ course.price }}</td>
+                <td>{{ course.capacity }}</td>
+                <td>{{ course.available ? 'Yes' : 'No' }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">We are sorry, but no course is available at the moment!</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_course_new') }}">Create new</a>
+{% endblock %}

@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="{{ asset ('css/footer.css') }}" />
+
+
 <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">
@@ -20,7 +23,11 @@
           <a class="nav-link active" aria-current="page" href="/">HOME</a>
         </li>
         <li class="nav-item">
+<<<<<<< HEAD
           <a class="nav-link" href="/courses/">COURSES</a>
+=======
+          <a class="nav-link" href="{{url('app_course_index')}}">COURSES</a>
+>>>>>>> 90a8f57e40d848159087ec9b6d8993418e011900
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#contact">CONTACT</a>
@@ -49,18 +56,29 @@
         #}
       </ul>
       <form class="d-flex" role="search">
-        {#
-        <input
+        
+        {# <input
           class="form-control me-2"
           type="search"
           placeholder="Search"
           aria-label="Search"
-        />
-        #}
-        <button class="btn btn-outline-dark me-2" type="button" onclick="window.location.href='/login'">Login</button>
+        /> #}
+       
 
-        <button class="btn btn-danger" type="button" onclick="window.location.href='/register'">Sign up</button>
+        {% if app.user %}
+          <button class="btn btn-outline-dark me-2" type="button" onclick="window.location.href='/logout'">Logout</button>
+
+        {% else %}
+
+          <button class="btn btn-outline-dark me-2" type="button" onclick="window.location.href='/login'">Login</button>
+          <button class="btn btn-danger" type="button" onclick="window.location.href='/register'">Sign up</button>
+        {% endif %}
       </form>
     </div>
   </div>
 </nav>
+<div class="container">
+  <img src="{{ asset ('pictures/header-lightning-first-aid.jpg') }}" style="width: 100%; border-radius:20px ;    box-shadow: 5px 5px 3px 3px rgb(177, 145, 145);
+">
+</div>
+

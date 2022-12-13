@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Course{% endblock %}
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{{ asset ('css/details.css') }}" />
+{% endblock %}
+
+{% block body %}
+<hr>
+    <div class="row">
+        <div class="col-6 .col-md-4 .col-md-4">
+            <img src="{{ asset ('pictures/' ~ course.img ) }}" style="margin-top: 20px; margin-left:15px;">
+        </div>
+        <div class="col-6 .col-md-4" id="text-detail">
+            <b ><h1>{{ course.name }}  </b> </h1>
+            <p> {{ course.description }} </p>
+            <span><img src="{{ asset ('pictures/certificate.png') }}"> Certificates:</span>
+            <div>On completion of the course, you will receive a First Aid certificate.</div>
+            <br><br>
+             <span><img src="{{ asset ('pictures/euro-35.png') }}"> Costs:</span>
+            <div>The costs for this course is : {{ course.price }}</div><br>
+             <span><img src="{{ asset ('pictures/date.png') }}"> Start on :</span>
+            <div>{{ course.startDate ? course.startDate|date('Y-m-d H:i:s') : '' }}</div>
+        </div>
+    </div>
+    <div class="container">
+      
+
+
+
+
+         <div class="d-grid gap-2 col-6 mx-auto">
+  <button class="btn btn-primary" type="button" style="width: 30%;"><a href="{{ path('app_course_edit', {'id': course.id}) }}" style="text-decoration: none; color: white;">Edit</a></button>
+   <span >{{ include('course/_delete_form.html.twig') }}</span>
+</div>
+    </div>
+
+<div class="container">
+
+
+
+
+
+
+
+
+
+
+
+    {# <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ course.id }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ course.description }}</td>
+            </tr>
+            <tr>
+                <th>Start_date</th>
+                <td>{{ course.startDate ? course.startDate|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>End_date</th>
+                <td>{{ course.endDate ? course.endDate|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td>{{ course.price }}</td>
+            </tr>
+            <tr>
+                <th>Capacity</th>
+                <td>{{ course.capacity }}</td>
+            </tr>
+            <tr>
+                <th>Available</th>
+                <td>{{ course.available ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table> #}
+
+    {# <a href="{{ path('app_course_index') }}">back to list</a> #}
+
+    
+
+   
+{% endblock %}

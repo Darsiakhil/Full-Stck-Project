@@ -1,11 +1,20 @@
 footer{
      text-align: center;
-    width: 100%; 
+        width: 100%; 
+       
+}
+.main{
+    width: 100%;
+    background-image: linear-gradient(to right, #ff2929, #e8deed);
+    height:fit-content;
+    border-radius: 10px;
+    margin: 0;
+    
 }
 
 
 form#contact {
-    margin-left: 30px;
+    /* margin-left: 30px; */
     position: relative;
     background-color: #fff;
     padding: 60px 30px;
@@ -27,7 +36,7 @@ form#contact input {
 }
 
 form#contact input::placeholder {
-    color: #2a2a2a;
+    color: black;
 }
 
 form#contact textarea {
@@ -71,11 +80,14 @@ form#contact button:hover {
     background-color: #fe3f40;
 }
 .contact-us {
-    padding: 160px 0px;
-    background-image: url(../pictures/footer-bg.png);
+    padding: 100px 50px;
+    /* background-image: url(../pictures/footer-bg.png);  */
     background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
+     background-position: center;
+     background-size: cover; 
+}
+.contact-us#contact section{
+    width: 100%;
 }
 
 .contact-us .section-heading h2,
@@ -87,6 +99,7 @@ form#contact button:hover {
 .contact-us .section-heading p {
     color: #fff;
     margin-top: 30px;
+    
 }
 
 .phone-info {
@@ -136,7 +149,7 @@ footer p a {
 }
 
 .call{
-    margin-left: 30px;
+    /* margin-left: 30px; */
     position: relative;
     background-color: rgb(16, 16, 16); 
     padding: 60px 30px;
@@ -145,4 +158,12 @@ footer p a {
     /* box-shadow:#6a6a6a;  */
    border-style:solid;
     box-shadow: 5px 5px 3px 3px rgb(232, 104, 104);
+}
+/* ------------------------------------------------------------------------------- */
+/* Navbar */
+
+.nav-link:hover{
+    color: #fe3f40 !important;
+    text-decoration:underline;
+
 }

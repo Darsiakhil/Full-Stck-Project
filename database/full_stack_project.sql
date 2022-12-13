@@ -2,8 +2,13 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
+<<<<<<< HEAD
 -- Host: 127.0.0.1
 -- Generation Time: Dec 12, 2022 at 10:45 AM
+=======
+-- Host: localhost
+-- Generation Time: Dec 07, 2022 at 12:09 PM
+>>>>>>> 90a8f57e40d848159087ec9b6d8993418e011900
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -20,6 +25,11 @@ SET time_zone = "+00:00";
 --
 -- Database: `full_stack_project`
 --
+<<<<<<< HEAD
+=======
+CREATE DATABASE IF NOT EXISTS `full_stack_project` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `full_stack_project`;
+>>>>>>> 90a8f57e40d848159087ec9b6d8993418e011900
 
 -- --------------------------------------------------------
 
@@ -29,9 +39,15 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `booking` (
   `id` int(11) NOT NULL,
+<<<<<<< HEAD
   `fk_course_id_id` int(11) DEFAULT NULL,
   `booking_date` datetime NOT NULL,
   `fk_user_id_id` int(11) NOT NULL
+=======
+  `fk_course_id` int(11) DEFAULT NULL,
+  `booking_date` datetime NOT NULL,
+  `fk_user_id` int(11) NOT NULL
+>>>>>>> 90a8f57e40d848159087ec9b6d8993418e011900
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -42,12 +58,17 @@ CREATE TABLE `booking` (
 
 CREATE TABLE `course` (
   `id` int(11) NOT NULL,
+<<<<<<< HEAD
   `fk_trainer_id_id` int(11) DEFAULT NULL,
+=======
+  `fk_trainer_id` int(11) NOT NULL,
+>>>>>>> 90a8f57e40d848159087ec9b6d8993418e011900
   `description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `start_date` datetime NOT NULL,
   `end_date` datetime NOT NULL,
   `price` decimal(10,2) NOT NULL,
   `capacity` int(11) NOT NULL,
+<<<<<<< HEAD
   `available` tinyint(1) NOT NULL,
   `img` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
@@ -60,6 +81,11 @@ CREATE TABLE `course` (
 INSERT INTO `course` (`id`, `fk_trainer_id_id`, `description`, `start_date`, `end_date`, `price`, `capacity`, `available`, `img`, `name`) VALUES
 (1, NULL, 'test', '2022-12-15 09:00:00', '2022-12-22 16:00:00', '20.00', 100, 0, 'contact-bg.png', 'First Course');
 
+=======
+  `available` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+>>>>>>> 90a8f57e40d848159087ec9b6d8993418e011900
 -- --------------------------------------------------------
 
 --
@@ -79,6 +105,7 @@ CREATE TABLE `doctrine_migration_versions` (
 INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_time`) VALUES
 ('DoctrineMigrations\\Version20221207104819', '2022-12-07 11:48:56', 143),
 ('DoctrineMigrations\\Version20221207105202', '2022-12-07 11:52:11', 30),
+<<<<<<< HEAD
 ('DoctrineMigrations\\Version20221207105636', '2022-12-07 11:56:42', 49),
 ('DoctrineMigrations\\Version20221208204414', '2022-12-08 21:44:28', 185),
 ('DoctrineMigrations\\Version20221208205800', '2022-12-08 21:58:14', 109),
@@ -86,6 +113,9 @@ INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_
 ('DoctrineMigrations\\Version20221209124008', '2022-12-09 13:40:34', 44),
 ('DoctrineMigrations\\Version20221210104330', '2022-12-10 11:44:46', 643),
 ('DoctrineMigrations\\Version20221210104930', '2022-12-10 11:49:40', 70);
+=======
+('DoctrineMigrations\\Version20221207105636', '2022-12-07 11:56:42', 49);
+>>>>>>> 90a8f57e40d848159087ec9b6d8993418e011900
 
 -- --------------------------------------------------------
 
@@ -111,9 +141,15 @@ CREATE TABLE `messenger_messages` (
 
 CREATE TABLE `review` (
   `id` int(11) NOT NULL,
+<<<<<<< HEAD
   `content` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `fk_user_id_id` int(11) NOT NULL,
   `fk_course_id_id` int(11) NOT NULL
+=======
+  `fk_user_id` int(11) NOT NULL,
+  `fk_course_id` int(11) NOT NULL,
+  `content` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+>>>>>>> 90a8f57e40d848159087ec9b6d8993418e011900
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -124,7 +160,11 @@ CREATE TABLE `review` (
 
 CREATE TABLE `trainer` (
   `id` int(11) NOT NULL,
+<<<<<<< HEAD
   `fk_user_id_id` int(11) NOT NULL,
+=======
+  `fk_user_id` int(11) NOT NULL,
+>>>>>>> 90a8f57e40d848159087ec9b6d8993418e011900
   `information` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `specialty` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `experience` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
@@ -148,6 +188,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+<<<<<<< HEAD
 -- Dumping data for table `user`
 --
 
@@ -156,6 +197,8 @@ INSERT INTO `user` (`id`, `email`, `roles`, `password`, `first_name`, `last_name
 (2, 'ta@gmail.com', '[\"ROLE_ADMIN\"]', '$2y$13$6pnGJjd8pIMDpm/WNQ4H7udbyoNWs7mq1NUJch5F2fWOGE0WTNfhi', 'ta', 'lkk', '123654', 'a');
 
 --
+=======
+>>>>>>> 90a8f57e40d848159087ec9b6d8993418e011900
 -- Indexes for dumped tables
 --
 
@@ -164,15 +207,24 @@ INSERT INTO `user` (`id`, `email`, `roles`, `password`, `first_name`, `last_name
 --
 ALTER TABLE `booking`
   ADD PRIMARY KEY (`id`),
+<<<<<<< HEAD
   ADD UNIQUE KEY `UNIQ_E00CEDDE6DE8AF9C` (`fk_user_id_id`),
   ADD UNIQUE KEY `UNIQ_E00CEDDEB7329BA6` (`fk_course_id_id`);
+=======
+  ADD UNIQUE KEY `UNIQ_E00CEDDE6DE8AF9C` (`fk_user_id`),
+  ADD UNIQUE KEY `UNIQ_E00CEDDEB7329BA6` (`fk_course_id`);
+>>>>>>> 90a8f57e40d848159087ec9b6d8993418e011900
 
 --
 -- Indexes for table `course`
 --
 ALTER TABLE `course`
   ADD PRIMARY KEY (`id`),
+<<<<<<< HEAD
   ADD KEY `IDX_169E6FB95649BAF8` (`fk_trainer_id_id`);
+=======
+  ADD KEY `IDX_169E6FB95649BAF8` (`fk_trainer_id`);
+>>>>>>> 90a8f57e40d848159087ec9b6d8993418e011900
 
 --
 -- Indexes for table `doctrine_migration_versions`
@@ -194,15 +246,24 @@ ALTER TABLE `messenger_messages`
 --
 ALTER TABLE `review`
   ADD PRIMARY KEY (`id`),
+<<<<<<< HEAD
   ADD UNIQUE KEY `UNIQ_794381C6B7329BA6` (`fk_course_id_id`),
   ADD KEY `IDX_794381C66DE8AF9C` (`fk_user_id_id`);
+=======
+  ADD UNIQUE KEY `UNIQ_794381C6B7329BA6` (`fk_course_id`),
+  ADD KEY `IDX_794381C66DE8AF9C` (`fk_user_id`);
+>>>>>>> 90a8f57e40d848159087ec9b6d8993418e011900
 
 --
 -- Indexes for table `trainer`
 --
 ALTER TABLE `trainer`
   ADD PRIMARY KEY (`id`),
+<<<<<<< HEAD
   ADD UNIQUE KEY `UNIQ_C51508206DE8AF9C` (`fk_user_id_id`);
+=======
+  ADD UNIQUE KEY `UNIQ_C51508206DE8AF9C` (`fk_user_id`);
+>>>>>>> 90a8f57e40d848159087ec9b6d8993418e011900
 
 --
 -- Indexes for table `user`
@@ -225,7 +286,11 @@ ALTER TABLE `booking`
 -- AUTO_INCREMENT for table `course`
 --
 ALTER TABLE `course`
+<<<<<<< HEAD
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+=======
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+>>>>>>> 90a8f57e40d848159087ec9b6d8993418e011900
 
 --
 -- AUTO_INCREMENT for table `messenger_messages`
@@ -249,7 +314,11 @@ ALTER TABLE `trainer`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
+<<<<<<< HEAD
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+=======
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+>>>>>>> 90a8f57e40d848159087ec9b6d8993418e011900
 
 --
 -- Constraints for dumped tables
@@ -259,27 +328,45 @@ ALTER TABLE `user`
 -- Constraints for table `booking`
 --
 ALTER TABLE `booking`
+<<<<<<< HEAD
   ADD CONSTRAINT `FK_E00CEDDE6DE8AF9C` FOREIGN KEY (`fk_user_id_id`) REFERENCES `user` (`id`),
   ADD CONSTRAINT `FK_E00CEDDEB7329BA6` FOREIGN KEY (`fk_course_id_id`) REFERENCES `course` (`id`);
+=======
+  ADD CONSTRAINT `FK_E00CEDDE6DE8AF9C` FOREIGN KEY (`fk_user_id`) REFERENCES `user` (`id`),
+  ADD CONSTRAINT `FK_E00CEDDEB7329BA6` FOREIGN KEY (`fk_course_id`) REFERENCES `course` (`id`);
+>>>>>>> 90a8f57e40d848159087ec9b6d8993418e011900
 
 --
 -- Constraints for table `course`
 --
 ALTER TABLE `course`
+<<<<<<< HEAD
   ADD CONSTRAINT `FK_169E6FB95649BAF8` FOREIGN KEY (`fk_trainer_id_id`) REFERENCES `trainer` (`id`);
+=======
+  ADD CONSTRAINT `FK_169E6FB95649BAF8` FOREIGN KEY (`fk_trainer_id`) REFERENCES `trainer` (`id`);
+>>>>>>> 90a8f57e40d848159087ec9b6d8993418e011900
 
 --
 -- Constraints for table `review`
 --
 ALTER TABLE `review`
+<<<<<<< HEAD
   ADD CONSTRAINT `FK_794381C66DE8AF9C` FOREIGN KEY (`fk_user_id_id`) REFERENCES `user` (`id`),
   ADD CONSTRAINT `FK_794381C6B7329BA6` FOREIGN KEY (`fk_course_id_id`) REFERENCES `course` (`id`);
+=======
+  ADD CONSTRAINT `FK_794381C66DE8AF9C` FOREIGN KEY (`fk_user_id`) REFERENCES `user` (`id`),
+  ADD CONSTRAINT `FK_794381C6B7329BA6` FOREIGN KEY (`fk_course_id`) REFERENCES `course` (`id`);
+>>>>>>> 90a8f57e40d848159087ec9b6d8993418e011900
 
 --
 -- Constraints for table `trainer`
 --
 ALTER TABLE `trainer`
+<<<<<<< HEAD
   ADD CONSTRAINT `FK_C51508206DE8AF9C` FOREIGN KEY (`fk_user_id_id`) REFERENCES `user` (`id`);
+=======
+  ADD CONSTRAINT `FK_C51508206DE8AF9C` FOREIGN KEY (`fk_user_id`) REFERENCES `user` (`id`);
+>>>>>>> 90a8f57e40d848159087ec9b6d8993418e011900
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
