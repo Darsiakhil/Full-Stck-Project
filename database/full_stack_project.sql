@@ -2,8 +2,13 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
+<<<<<<< HEAD
 -- Host: 127.0.0.1
 -- Generation Time: Dec 12, 2022 at 10:45 AM
+=======
+-- Host: localhost
+-- Generation Time: Dec 07, 2022 at 12:09 PM
+>>>>>>> 90a8f57e40d848159087ec9b6d8993418e011900
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -20,8 +25,11 @@ SET time_zone = "+00:00";
 --
 -- Database: `full_stack_project`
 --
+<<<<<<< HEAD
+=======
 CREATE DATABASE IF NOT EXISTS `full_stack_project` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `full_stack_project`;
+>>>>>>> 90a8f57e40d848159087ec9b6d8993418e011900
 
 -- --------------------------------------------------------
 
