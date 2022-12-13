@@ -4,33 +4,102 @@
 {% endblock %}
 {% block title %}Course index{% endblock %}
 
-
-
 {% block body %}
-    <h1>Course index</h1>
-
-
-<div class="container ">
+    <h1 style="text-align: center;"> Courses </h1>
+  {# <div class="container ">
      <div class="row row-cols-3 g-4"> 
         {% for course in courses %}
-            <div class="card">
+            <div class="card" >   #}
             {# <p class="card-header text-bg-secondary">  </p>  #}
-            <img src="{{ asset ('pictures/' ~ course.img ) }}"  class="card-img-top" alt="">
+             {# <img src="{{ asset ('pictures/' ~ course.img ) }}"  class="card-img-top" alt="">
             <div class="card-body" > 
             <h5 class="card-title">{{ course.name }}</h5><hr>
             <p class="card-text"><b>  Start on :</b> {{ course.startDate ? course.startDate|date('Y-m-d H:i:s') : '' }}</p>
             <p class="card-text"><b>  End on :</b> {{ course.endDate ? course.endDate|date('Y-m-d H:i:s') : '' }}</p>
             <p class="card-text"> Price : {{ course.price }} € </p>
+            <button class="button" style="vertical-align:middle">
+                <span>
+                <a href="{{ path('app_course_show', {'id': course.id}) }}">Details</a>      
+                </span>
+                <button class="action btn btn-primary">
+                <a href="{{ path('app_course_edit', {'id': course.id}) }}">Edite</a>
+            </button>
+            <button class="action btn btn-danger">
+                <a href="{{ path('app_course_delete', {'id': course.id}) }}">Delete</a>
+            </button>
+            </button>
+            </button>
              <div class="card-footer">
                 <div class="text-foot"><b>Available : </b>{{ course.available ? 'Yes' : 'No' }}</div>
-                    <a href="{{ path('app_course_show', {'id': course.id}) }}">Details</a> 
-
              </div> 
-         </div>  
+              
+         </div> 
+         </div> 
         {% endfor %}
-     </div> 
-</div>
+</div> <br>
+<div class="add">  
+<button class="action btn btn-primary">
+    <a href="{{ path('app_course_new') }}">Create new</a>
+    </button>
+    </div> 
+{% endblock %} #}
 
+
+<div class="container">
+    {% for course in courses %}
+  <div class="card">
+    <img src="{{ asset ('pictures/' ~ course.img ) }}"/>
+    <h2 style="color: #321f3a; text-align:center">{{ course.name }}</h2>
+    <div class="card__content">
+      {# <h2 style="color: #321f3a;">{{ course.name }}</h2> #}
+      <p class="card-text"><b>  Start on :</b> {{ course.startDate ? course.startDate|date('Y-m-d H:i:s') : '' }}</p>
+            <p class="card-text"><b>  End on :</b> {{ course.endDate ? course.endDate|date('Y-m-d H:i:s') : '' }}</p>
+            <p class="card-text"> Price : {{ course.price }} € </p>
+      <a href="{{ path('app_course_show', {'id': course.id}) }}">Details</a>
+    </div>
+    {% endfor %}
+  </div>
+{% endblock %}
+
+
+
+
+
+    {# <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Description</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Price €</th>
+                <th>Capacity</th>
+                <th>Available</th>
+                <th>Actions</th>
+                </tr>
+        </thead>
+        <tbody>
+        {% for course in courses %}
+            <tr>
+                <td>{{ course.id }}</td>
+                <td>{{ course.description }}</td>
+                <td>{{ course.startDate ? course.startDate|date('d.m.Y H:i') : '' }}</td>
+                <td>{{ course.endDate ? course.endDate|date('d.m.Y H:i') : '' }}</td>
+                <td>{{ course.price }}</td>
+                <td>{{ course.capacity }}</td>
+                <td>{{ course.available ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('app_course_show', {'id': course.id}) }}">show</a>
+                    <a href="{{ path('app_course_edit', {'id': course.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table> #}
 
 
 
@@ -78,5 +147,5 @@
     </table> #}
 
     {# <a href="{{ path('app_course_new') }}">Create new</a> #}
-{% endblock %}
+{# {% endblock %} #}
 

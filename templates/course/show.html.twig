@@ -7,11 +7,13 @@
 
 {% block body %}
 <hr>
-    <div class="row">
-        <div class="col-6 .col-md-4 .col-md-4">
-            <img src="{{ asset ('pictures/' ~ course.img ) }}" style="margin-top: 20px; margin-left:15px;">
+    <div class="row g-0 ">
+        <div class="col-6">
+            <img src="{{ asset ('pictures/' ~ course.img ) }}" class="card mb-4" style="margin-top: 20px; margin-left:15px; max-width:100%">
         </div>
-        <div class="col-6 .col-md-4" id="text-detail">
+         <div class="col-md-6">
+            <div class="card-body" style="max-width: 100%; margin-left:5%;">
+                <div class="card-title">
             <b ><h1>{{ course.name }}  </b> </h1>
             <p> {{ course.description }} </p>
             <span><img src="{{ asset ('pictures/certificate.png') }}"> Certificates:</span>
@@ -20,22 +22,31 @@
              <span><img src="{{ asset ('pictures/euro-35.png') }}"> Costs:</span>
             <div>The costs for this course is : {{ course.price }}</div><br>
              <span><img src="{{ asset ('pictures/date.png') }}"> Start on :</span>
-            <div>{{ course.startDate ? course.startDate|date('Y-m-d H:i:s') : '' }}</div>
+            <div>{{ course.startDate ? course.startDate|date('Y-m-d H:i:s') : '' }}</div><br>
+            <span><img src="{{ asset ('pictures/date.png') }}"> End on :</span>
+            <div>{{ course.endDate ? course.endDate|date('Y-m-d H:i:s') : '' }}</div><br>
+
+            <button class="btn btn-primary" type="button" style="width: 30%;"><a href="{{ path('app_course_index') }}" style="text-decoration: none; color: white;">Back to liste</a></button><hr>
         </div>
     </div>
-    <div class="container">
-      
-
-
-
-
-         <div class="d-grid gap-2 col-6 mx-auto">
-  <button class="btn btn-primary" type="button" style="width: 30%;"><a href="{{ path('app_course_edit', {'id': course.id}) }}" style="text-decoration: none; color: white;">Edit</a></button>
-   <span >{{ include('course/_delete_form.html.twig') }}</span>
-</div>
     </div>
 
+
+
+    <div class="container">
+
+        <button class="btn add" type="button" style="width: 30%; background-color:#48279a !important;"><a href="{{ path('app_course_new')}}" style="text-decoration: none; color: white;">Add new course</a></button><br><br>
+        
+  <button class="btn btn-primary" type="button" style="width: 30%;"><a href="{{ path('app_course_edit', {'id': course.id}) }}" style="text-decoration: none; color: white;">Edit</a></button><br><br>
+
+  
+
+   <button class="btn btn-danger" type="button" style="width: 30%;"><a href="{{ path('app_course_delete', {'id': course.id}) }}" style="text-decoration: none; color: white;">Delete</a></button><br>
+</div>
+    {# {{ include('course/_delete_form.html.twig') }} #}
+<br>
 <div class="container">
+    <br>
 
 
 

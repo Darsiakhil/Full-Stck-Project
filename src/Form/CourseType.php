@@ -12,12 +12,14 @@ class CourseType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('description')
+            ->add('name',null, ["attr" => ["class" => "form-control m-3"]])
+            ->add('description', null, ["attr" => ["class" => "form-control m-3", "placeholder" => "The Description"]])
             ->add('start_date')
-            ->add('end_date')
-            ->add('price')
-            ->add('capacity')
-            ->add('available')
+            ->add('end_date' )
+            ->add('price', null, ["attr" => ["class" => "form-control m-3"]])
+            ->add('capacity', null, ["attr" => ["class" => "form-control m-3"]])
+            ->add('available', null, ["attr" => ["class" => "form-select m-3"]])
+            ->add('img')
             ->add('review')
             ->add('fk_trainer_id')
         ;
