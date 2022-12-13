@@ -1,87 +1,58 @@
-/* *,
-*::before,
-*::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-} */
 
-/* html {
-    font-size: 62.5%;
-}
 
-body {
-    font-size: 2rem;
-    font-family: Roboto, sans-serif;
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
-
-.container1 {
-    padding: 3rem;
-    width: 500px;
-    height: 500px;
-    position: relative;
-    perspective: 1500px;
-}
-
-.card {
-    color: white;
-    background: rgba(0, 0, 0, 0.3);
-    position: absolute;
-    width: 250px;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.15),
-        0 10px 20px 0px rgba(0, 0, 0, 0.05),
-        -3px -3px 10px 0px rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(5px);
-    transform: rotateY(-20deg) rotateX(20deg) scale(0.85);
-    transition: all 0.3s;
-}
-
-.card:hover {
-    transform: rotateY(0deg) rotateX(0deg) scale(1);
-    box-shadow: 0 5px 10px 2px rgba(0, 0, 0, 0.15),
-        0 10px 20px 5px rgba(0, 0, 0, 0.05),
-        -3px -3px 10px 3px rgba(255, 255, 255, 0.15);
-    z-index: 5;
+ /* body {
+    background: #eee;
+    font-family: 'Lily Script One';
+}   */
+/* .container1{
+    margin-top: 20px;
+    margin-bottom:20%;
+    width: 100%;
+     height: max-content; 
 }
 
 .card1 {
-    top: 15%;
-    z-index: 2;
-    left: 28%;
+    position: absolute;
+      top: 50%; 
+     left: 50%; 
+    width: 300px;
+     height: 300px; 
+    margin: -150px;   
+    float: left;
+     perspective: 500px; 
 }
 
-.card2 {
-    top: 35%;
-    z-index: 3;
-    left: 8%;
+.content1 {
+    position: absolute;
+     width: 100%;
+    height: 100%;  
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+
+    transition: transform 1s;
+    transform-style: preserve-3d;
 }
 
-.card3 {
-    top: 50%;
-    z-index: 4;
-    right: 5%;
+.card1:hover .content1 {
+    transform: rotateY(180deg);
+    transition: transform 0.4s;
 }
 
-.question {
-    font-size: 2.2rem;
-    font-weight: 900;
-    margin-bottom: 0.5rem;
-}
-
-.option {
+.front,
+.back {
+    position: absolute;
+     height: 100%; 
+    width: 100%;
+    background: white;
+    line-height: 300px;  
+    color: #03446A;
     text-align: center;
-    font-size: 1.6rem;
-    padding: 0.8rem;
-    margin: 0.5rem 0;
-    background: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(2px);
-    border-radius: 4px;
-    color: #eee;
+    font-size: 60px;  
+    border-radius: 5px;
+    backface-visibility: hidden;
 }
+
+.back {
+    background: #03446A;
+    color: white;
+    transform: rotateY(180deg);
+} */
