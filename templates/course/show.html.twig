@@ -47,11 +47,9 @@ body %}
 
 			<div class="container">
 
-				<button class="btn add" type="button" style="width: 30%; background-color:#48279a !important;">
-					<a href="{{ path('app_course_new')}}" style="text-decoration: none; color: white;">Add new course</a>
-				</button><br><br>
-
-				
+				<a class="btn add text-white" type="button" style="width: 30%; background-color:#48279a !important;" href="{{ path('app_course_new')}}" style="text-decoration: none; color: white;"><i class="bi bi-file-earmark-plus pe-2"></i>Add new course</a>
+				<br><br>
+	
 				<a class="btn btn-primary" type="button" style="width: 30%;" href="{{ path('app_course_edit', {'id': course.id}) }}" style="text-decoration: none; color: white;"><i class="bi bi-pencil-square pe-2"></i>Edit</a>
 				<br><br>
 
