@@ -49,3 +49,6 @@
     font-size: large;
     padding: 5px 5px;
 }
+.btn .add a :hover{
+    background-color: #321f3a;
+}
