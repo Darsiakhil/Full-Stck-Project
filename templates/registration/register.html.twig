@@ -4,6 +4,11 @@
  {# {% block  body %} #}
 {# <div class="container m-5">
   <h1>Register</h1>
+{% extends 'base.html.twig' %} {% block title %}Register{% endblock %} {% block
+body %}
+<link rel="stylesheet" href="{{ asset('css/register.css') }}" />
+<div class="container mt-5 mb-5 bg-danger text-white rounded-4 p-4" style="width: 700px">
+  <h1 class="text-center mb-4">Register</h1>
   <div class="col d-flex justify-content-center">
     {{ form_start(registrationForm) }}
     {{
@@ -37,13 +42,14 @@
       })
     }}
     {{ form_row(registrationForm.agreeTerms) }}
-
-    <button type="submit" class="btn btn-dark my-2">Register</button>
+    
+    <button type="submit" class="btn btn-dark my-2">Register</button><br>
+    <a href="#" class="already">You already have an account? Login here.</a>
     {{ form_end(registrationForm) }}
   </div>
 </div>
 
-<div class="register-photo">
+{# <div class="register-photo">
   <div class="form-container">
     <div class="image-holder"></div>
     <form method="post">
@@ -83,9 +89,9 @@
       <div class="form-group">
         <button class="btn btn-primary btn-block" type="submit">Sign Up</button>
       </div>
-      <a href="#" class="already">You already have an account? Login here.</a>
     </form>
   </div>
+<<<<<<< HEAD
 </div>
 
 
@@ -150,3 +156,8 @@
         <button type="submit" class="btn">Register</button>
         {% endblock %}
   
+=======
+</div> #}
+
+{% endblock %}
+>>>>>>> a0be7617829dfeeb253986d0803aa8f6c61ee48a

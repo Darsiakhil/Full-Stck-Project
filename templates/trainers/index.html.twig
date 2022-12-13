@@ -7,29 +7,52 @@
 {% endblock %}
 
 {% block body %}
-<style>
-   
-</style>
-
-<div class="container1">
-   <div class="card card1"> 
-    <p class="question">Who's the strongest Avenger?</p>
-    <p class="option">Hulk</p>
-    <p class="option">Thor</p>
-    <p class="option">Captian America</p>
-    <p class="option">Ironman</p>
+{# <div class="container1" style="width: 100%;"> 
+<div class="card1">
+  <div class="content1">
+    <div class="front">
+      <img src="{{ asset ('pictures/bg.jpg') }}" alt="">
+    </div>
+    <div class="back">
+     hello from back
+    </div>
   </div>
-  {# <div class="card card2">
-    <p class="question">Who's the fastest man alive?</p>
-    <p class="option">Ussain Bolt</p>
-    <p class="option">The Flash</p>
-    <p class="option">Reverse Flash</p>
-  </div>
-  <div class="card card3">
-    <p class="question">Do you believe in Aliens?</p>
-    <p class="option">Yes I do</p>
-    <p class="option">No I don't</p>
-    <p class="option">Maybe? IDK</p>
-  </div>
+</div>
 </div> #}
+
+
+
+<table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                {# <th>userId</th> #}
+                <th>information</th>
+                <th>specialty</th>
+                <th>experience</th>
+                </tr>
+        </thead>
+        <tbody>
+        {% for trainers in trainer %}
+            <tr>
+                <td>{{ trainers.id }}</td>
+                {# <td>{{ trainers.fk_user_id_id }}</td> #}
+                <td>{{ trainers.information }}</td>
+                <td>{{ trainers.specialty }}</td>
+                <td>{{ trainers.	experience }}</td>
+                {# <td>
+                    <a href="{{ path('app_course_show', {'id': course.id}) }}">show</a>
+                    <a href="{{ path('app_course_edit', {'id': course.id}) }}">edit</a>
+                </td> #}
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table> 
+
+
+
 {% endblock %}
