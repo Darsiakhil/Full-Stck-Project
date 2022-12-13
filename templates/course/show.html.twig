@@ -4,8 +4,6 @@
 {% block
 body %}
 <div class="container">
-	<a class="btn btn-warning my-2" href="{{ path('app_course_index') }}">back to list</a>
-	<h1>Course</h1>
 
 	{% block stylesheets %}
 		<link rel="stylesheet" type="text/css" href="{{ asset ('css/details.css') }}"/>
@@ -39,10 +37,9 @@ body %}
 						<span><img src="{{ asset ('pictures/date.png') }}">
 							End on :</span>
 						<div>{{ course.endDate ? course.endDate|date('Y-m-d H:i:s') : '' }}</div><br>
-
-						<button class="btn btn-primary" type="button" style="width: 30%;">
-							<a href="{{ path('app_course_index') }}" style="text-decoration: none; color: white;">Back to liste</a>
-						</button><hr>
+						
+						<a class="btn btn-primary" style="width: 30%;" href="{{ path('app_course_index') }}" style="text-decoration: none; color: white;"><i class="bi bi-list-ul pe-2"></i>Back to liste</a>
+						<hr>
 					</div>
 				</div>
 			</div>
