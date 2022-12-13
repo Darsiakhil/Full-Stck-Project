@@ -17,12 +17,13 @@ class Booking
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $booking_date = null;
 
-    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
-    private ?Course $fk_course_id = null;
-
-    #[ORM\OneToOne(inversedBy: 'booking', cascade: ['persist', 'remove'])]
+    #[ORM\ManyToOne(inversedBy: 'bookings')]
     #[ORM\JoinColumn(nullable: false)]
     private ?User $fk_user_id = null;
+
+    #[ORM\ManyToOne(inversedBy: 'bookings')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Course $fk_course_id = null;
 
     public function getId(): ?int
     {
@@ -41,6 +42,18 @@ class Booking
         return $this;
     }
 
+    public function getFkUserId(): ?User
+    {
+        return $this->fk_user_id;
+    }
+
+    public function setFkUserId(?User $fk_user_id): self
+    {
+        $this->fk_user_id = $fk_user_id;
+
+        return $this;
+    }
+
     public function getFkCourseId(): ?Course
     {
         return $this->fk_course_id;
@@ -53,15 +66,4 @@ class Booking
         return $this;
     }
 
-    public function getFkUserId(): ?User
-    {
-        return $this->fk_user_id;
-    }
-
-    public function setFkUserId(User $fk_user_id): self
-    {
-        $this->fk_user_id = $fk_user_id;
-
-        return $this;
-    }
 }

@@ -49,12 +49,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 50, nullable: true)]
     private ?string $address = null;
 
-    #[ORM\OneToOne(mappedBy: 'fk_user_id', cascade: ['persist', 'remove'])]
-    private ?Booking $booking = null;
+    #[ORM\OneToMany(mappedBy: 'fk_user_id', targetEntity: Booking::class)]
+    private Collection $bookings;
+
+    // #[ORM\OneToOne(mappedBy: 'fk_user_id', cascade: ['persist', 'remove'])]
+    // private ?Booking $booking = null;
 
     public function __construct()
     {
         $this->reviews = new ArrayCollection();
+        $this->bookings = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -222,20 +226,34 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getBooking(): ?Booking
+    /**
+     * @return Collection<int, Booking>
+     */
+    public function getBookings(): Collection
     {
-        return $this->booking;
+        return $this->bookings;
     }
 
-    public function setBooking(Booking $booking): self
+    public function addBooking(Booking $booking): self
     {
-        // set the owning side of the relation if necessary
-        if ($booking->getFkUserId() !== $this) {
+        if (!$this->bookings->contains($booking)) {
+            $this->bookings->add($booking);
             $booking->setFkUserId($this);
         }
 
-        $this->booking = $booking;
+        return $this;
+    }
+
+    public function removeBooking(Booking $booking): self
+    {
+        if ($this->bookings->removeElement($booking)) {
+            // set the owning side to null (unless already changed)
+            if ($booking->getFkUserId() === $this) {
+                $booking->setFkUserId(null);
+            }
+        }
 
         return $this;
     }
+
 }
