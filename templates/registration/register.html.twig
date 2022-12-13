@@ -1,13 +1,11 @@
-
-{% extends 'base.html.twig' %} 
-{% block title %}Register{% endblock %}
- {# {% block  body %} #}
-{# <div class="container m-5">
-  <h1>Register</h1>
 {% extends 'base.html.twig' %} {% block title %}Register{% endblock %} {% block
 body %}
 <link rel="stylesheet" href="{{ asset('css/register.css') }}" />
-<div class="container mt-5 mb-5 bg-danger text-white rounded-4 p-4" style="width: 700px">
+
+<div
+  class="container my-3 bg-danger text-white rounded-4 p-4"
+  style="width: 700px"
+>
   <h1 class="text-center mb-4">Register</h1>
   <div class="col d-flex justify-content-center">
     {{ form_start(registrationForm) }}
@@ -42,14 +40,16 @@ body %}
       })
     }}
     {{ form_row(registrationForm.agreeTerms) }}
-    
-    <button type="submit" class="btn btn-dark my-2">Register</button><br>
-    <a href="#" class="already">You already have an account? Login here.</a>
+
+    <button type="submit" class="btn btn-dark my-2">Register</button><br />
+    You already have an account?
+    <a class="btn btn-outline-light btn-sm" href="/login">Login here.</a>
     {{ form_end(registrationForm) }}
   </div>
 </div>
 
-{# <div class="register-photo">
+{#
+<div class="register-photo">
   <div class="form-container">
     <div class="image-holder"></div>
     <form method="post">
@@ -91,73 +91,5 @@ body %}
       </div>
     </form>
   </div>
-<<<<<<< HEAD
 </div>
-
-
-  {{ form_start(registrationForm) }}
-  {{
-    form_row(registrationForm.first_name, {
-      label: "Name:"
-    })
-  }}
-  {{
-    form_row(registrationForm.last_name, {
-      label: "Surname:"
-    })
-  }}
-  {{
-    form_row(registrationForm.email, {
-      label: "Email:"
-    })
-  }}
-  {{
-    form_row(registrationForm.address, {
-      label: "Address:"
-    })
-  }}
-  {{
-    form_row(registrationForm.phone, {
-      label: "Phone:"
-    })
-  }}
-  {{
-    form_row(registrationForm.plainPassword, {
-      label: "Password:"
-    })
-  }}
-  {{ form_row(registrationForm.agreeTerms) }}
-
-<<<<<<< HEAD #}
-{% block body %}
-    <h1>Register</h1>
-
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.first_name, {
-            label: 'Name:'
-        }) }}
-        {{ form_row(registrationForm.last_name, {
-            label: 'Surname:'
-        }) }}
-        {{ form_row(registrationForm.email, {
-            label: 'Email:'
-        }) }}
-        {{ form_row(registrationForm.address, {
-            label: 'Address:'
-        }) }}
-        {{ form_row(registrationForm.phone, {
-            label: 'Phone:'
-        }) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password:'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
-
-        <button type="submit" class="btn">Register</button>
-        {% endblock %}
-  
-=======
-</div> #}
-
-{% endblock %}
->>>>>>> a0be7617829dfeeb253986d0803aa8f6c61ee48a
+#} {% endblock %}
