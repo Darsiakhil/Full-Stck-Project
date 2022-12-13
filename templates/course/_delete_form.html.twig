@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-<form method="post" action="{{ path('app_course_delete', {'id': course.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
-    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ course.id) }}">
-    <button class="btn btn-danger" >Delete</button>
-=======
 <form
   method="post"
   action="{{ path('app_course_delete', { id: course.id }) }}"
@@ -13,6 +8,7 @@
     name="_token"
     value="{{ csrf_token('delete' ~ course.id) }}"
   />
-  <button class="btn btn-danger">Delete</button>
->>>>>>> 9c612de69ef786b92577604d92777a0c6d162796
+  <button class="btn btn-danger">
+    <i class="bi bi-trash3-fill pe-2"></i>Delete
+  </button>
 </form>
