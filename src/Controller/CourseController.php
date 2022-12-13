@@ -10,11 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-<<<<<<< HEAD
 #[Route('/admin')]
-=======
-#[Route('/courses')]
->>>>>>> 9c612de69ef786b92577604d92777a0c6d162796
 class CourseController extends AbstractController
 {
     #[Route('/', name: 'app_course_index', methods: ['GET'])]
