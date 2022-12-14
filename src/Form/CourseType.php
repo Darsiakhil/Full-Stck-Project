@@ -13,6 +13,9 @@ use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Validator\Constraints\File;
+
 
 class CourseType extends AbstractType
 {
@@ -24,7 +27,23 @@ class CourseType extends AbstractType
             ->add('start_date', DateTimeType::class, ["attr" => ["class" => "form-control m-1"]])
             ->add('end_date', DateTimeType::class, ["attr" => ["class" => "form-control m-1"]])
             ->add('price', NumberType::class, ["attr" => ["class" => "form-control m-1"]])
-            ->add('img', TextType::class, ["attr" => ["placeholder" => "Image", "class" => "form-control m-1"]])
+            ->add('img', FileType::class, [
+                "attr" => ["class" => "form-control m-1"],
+                'label' => 'Please select course picture (PNG, JPG, JPEG file)',
+                'mapped' => false,
+                'required' => false,
+                'constraints' => [
+                    new File([
+                        'maxSize' => '2048k',
+                        'mimeTypes' => [
+                            'image/png',
+                            'image/jpg',
+                            'image/jpeg',
+                        ],
+                        'mimeTypesMessage' => 'Please upload a valid PNG, JPG, JPEG file',
+                    ])
+                ],
+            ])
             ->add('capacity', NumberType::class, ["attr" => ["class" => "form-control m-1"]])
             ->add('available', ChoiceType::class, [
                 'choices' => [
