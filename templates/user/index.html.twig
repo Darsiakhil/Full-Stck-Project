@@ -24,7 +24,7 @@
           {{ course.endDate ? course.endDate|date('Y-m-d H:i:s') : '' }}
         </p>
         <p class="card-text">Price : {{ course.price }} €</p>
-        <a href="{{ path('app_course_show', { id: course.id }) }}">Details</a>
+        <a href="{{ path('app_user_course_details', { id: course.id }) }}">Details</a>
       </div>
     </div>
     {% endfor %}
