@@ -1,46 +1,46 @@
-{% extends 'base.html.twig' %}
-{% block title %}Course
+{% extends 'base.html.twig' %} {% block title %}Course {% endblock %} {% block
+body %} {% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{{ asset('css/details.css') }}" />
 {% endblock %}
-{% block
-body %}
-<div class="container">
-	<h1>Welcome {{app.user.firstName }} {{ app.user.lastName }}</h1>
+<div class="container my-3">
+  <h1>Welcome {{ app.user.firstName }} {{ app.user.lastName }}</h1>
 
-	{% block stylesheets %}
-		<link rel="stylesheet" type="text/css" href="{{ asset ('css/details.css') }}"/>
-	{% endblock %}
-		<hr>
-		<div class="row g-0 ">
-			<div class="col-6">
-				{# <img src="{{ asset ('pictures/' ~ course.img ) }}" class="card mb-4" style="margin-top: 20px; margin-left:15px; max-width:100%"> #}
-			</div>
+  <hr />
+  <div class="row g-0">
+    <div class="col-6">
+      {#
+      <img
+        src="{{ asset ('pictures/' ~ course.img ) }}"
+        class="card mb-4"
+        style="margin-top: 20px; margin-left: 15px; max-width: 100%"
+      />
+      #}
+    </div>
 
-			<table class="table">
-			        <tbody>
-			            <tr>
-			                <th>First Name</th>
-			                <td>{{ app.user.firstName }}</td>
-			            </tr>
-			            <tr>
-			                <th>Last Name</th>
-			                <td>{{ app.user.lastName }}</td>
-			            </tr>
-			            <tr>
-			                <th>Email</th>
-			                <td>{{ app.user.email }}</td>
-			            </tr>
-			            <tr>
-			                <th>Address</th>
-			                <td>{{ app.user.address }}</td>
-			            </tr>
-			            <tr>
-			                <th>Phone</th>
-			                <td>{{ app.user.phone }}</td>
-			            </tr>
-			        </tbody>
-			    </table>
-
-				{# <a href="{{ path('app_course_index') }}">back to list</a>#}
-
-
-			{% endblock %}
+    <table class="table">
+      <tbody>
+        <tr>
+          <th>First Name</th>
+          <td>{{ app.user.firstName }}</td>
+        </tr>
+        <tr>
+          <th>Last Name</th>
+          <td>{{ app.user.lastName }}</td>
+        </tr>
+        <tr>
+          <th>Email</th>
+          <td>{{ app.user.email }}</td>
+        </tr>
+        <tr>
+          <th>Address</th>
+          <td>{{ app.user.address }}</td>
+        </tr>
+        <tr>
+          <th>Phone</th>
+          <td>{{ app.user.phone }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+{# <a href="{{ path('app_course_index') }}">back to list</a>#} {% endblock %}
