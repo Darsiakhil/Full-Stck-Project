@@ -1,27 +1,26 @@
 {% extends 'base.html.twig' %} {% block title %}Reviews{% endblock %} {% block
 body %}
+
 <style></style>
-<div
-  class="container mt-5 mb-5 bg-danger text-white rounded-4 p-4"
-  style="width: 700px"
->
-  <div class="container mt-5">
-    {% for review in reviews %}
+
+<h1 class="mt-5 text-center">Reviews</h1>
+  <div class="container mt-5 mb-5 bg-danger text-white rounded-4 p-4"
+  style="width: 700px">
+    {% for value in reviews %}
     <div class="">
-      <p>{{ review.fk_user_id_id }}</p>
-      <p>{{ review.fk_course_id_id }}</p>
-      <p>{{ review.content }}</p>
+      <p><b>Name:</b> {{ value.fkUserId.firstName }}</p>
+      <p><b>Course:</b> {{ value.fkCourseId.name }}</p>
+      <p>{{ value.content }}</p>
     </div>
     {% endfor %}
   </div>
-</div>
-
-{# {{ form_start(review) }}
-{{
-  form_row(review.fk_user_id, {
-    label: "Name:"
-  })
-}}
-{{ form_end(review) }} #}
-<button class="btn btn-dark">Add Review</button>
+  {% if app.user and app.user.getRoles() == ["ROLE_USER"] %}
+      <div class="" style="width: 300px; margin: 0 auto">
+          {{ form_start(review) }}
+          {{
+              form_widget(review)
+            }}
+            {{ form_end(review) }}
+        </div>
+{% endif %}
 {% endblock %}

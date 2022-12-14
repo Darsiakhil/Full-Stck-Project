@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Controller;
+use App\Form\ReviewType;
+use Symfony\Component\HttpFoundation\Request;
 
 use App\Entity\Review;
 use Doctrine\Persistence\ManagerRegistry;
@@ -19,12 +21,24 @@ class ReviewsController extends AbstractController
     // }
 
     #[Route('/reviews', name: 'app_reviews')]
-    public function reviews(ManagerRegistry $doctrine): Response
+    public function reviews(ManagerRegistry $doctrine, Request $request): Response
     {
+        $review = new Review();
+        $form = $this->createForm(ReviewType::class, $review);
+        $form->handleRequest($request);
+        $em = $doctrine->getManager();
+        if ($form->isSubmitted() && $form->isValid()) {
+            $review = $form->getData();
+            $em->persist($review);
+            $em->flush();
+
+            return $this->redirectToRoute("app_reviews");
+        }
         $reviews = $doctrine->getRepository(Review::class)->findAll();
         
         return $this->render('reviews/index.html.twig', [
-            "reviews" => $reviews
+            "reviews" => $reviews,
+            "review"=> $form->createView()
         ]);
     }
 }

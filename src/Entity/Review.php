@@ -18,11 +18,11 @@ class Review
 
     #[ORM\ManyToOne(inversedBy: 'reviews')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?User $fk_user_id = null;
+    public ?User $fk_user_id = null;
 
     #[ORM\OneToOne(inversedBy: 'review', cascade: ['persist', 'remove'])]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Course $fk_course_id = null;
+    public ?Course $fk_course_id = null;
 
     public function getId(): ?int
     {
