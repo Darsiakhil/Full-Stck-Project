@@ -3,9 +3,12 @@
 namespace App\Form;
 
 use App\Entity\Course;
+use App\Entity\Trainer;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -30,8 +33,19 @@ class CourseType extends AbstractType
                 ], "attr" => ["class" => "form-select m-1"]
             ])
             // ->add('review')
-            // ->add('fk_trainer_id')
-        ;
+
+            ->add('fk_trainer_id', EntityType::class, [
+                // looks for choices from this entity
+                "attr" => ["class" => "form-control m-1"],
+                'class' => Trainer::class,
+
+                // uses the User.username property as the visible option string
+                'choice_label' => 'name',
+
+                // used to render a select box, check boxes or radios
+                // 'multiple' => true,
+                // 'expanded' => true,
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

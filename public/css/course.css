@@ -108,8 +108,8 @@ body {
 
 .card {
     width: 460px; 
-    height: 400px;
-
+    height: 540px;
+    margin: 40px 10px;
     padding: 1rem;
     /* cursor: pointer; */
     background-image: linear-gradient(to right, #746687, #e8deed);
@@ -118,9 +118,9 @@ body {
 
 .card img {
     width: 100%;
-    height: auto;
+    height: 300px;
     border-radius: 10px;
-    position: relative;
+    position: cover;
     z-index: 1000;
     transition: all .5s ease-in-out;
 }
