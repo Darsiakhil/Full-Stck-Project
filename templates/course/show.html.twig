@@ -89,7 +89,7 @@
 		<div class="row row justify-content-between">
 			<a class="btn add text-white" type="button" style="width: 30%; background-color:#48279a !important;" href="{{ path('app_course_new')}}" style="text-decoration: none; color: white;"><i class="bi bi-file-earmark-plus pe-2"></i>Add new course</a>
 			<a class="btn btn-primary" type="button" style="width: 30%;" href="{{ path('app_course_edit', {'id': course.id}) }}" style="text-decoration: none; color: white;"><i class="bi bi-pencil-square pe-2"></i>Edit</a>
-			<a class="btn btn-danger" type="button" style="width: 30%;">{{ include('course/_delete_form.html.twig') }}</a>
+			<a id="butn" class="btn" type="button" style="width: 30%; background-color: #fe3f40">{{ include('course/_delete_form.html.twig') }}</a>
 		</div>	
 	</div>	
 </div>

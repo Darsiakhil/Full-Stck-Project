@@ -52,3 +52,7 @@
 .btn .add a :hover{
     background-color: #321f3a;
 }
+.btn#butn:hover{
+    box-shadow: 5px 5px 3px 3px rgb(177, 145, 145);
+    background-color: #321f3a;
+}
