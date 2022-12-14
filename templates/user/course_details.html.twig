@@ -40,10 +40,15 @@
 					<span><img src="{{ asset ('pictures/date.png') }}">
 						End on :</span>
 					<div>{{ course.endDate ? course.endDate|date('Y-m-d H:i:s') : '' }}</div><br>
+					<span><img src="{{ asset ('pictures/date.png') }}">
+						Available :</span>
+					<div>{{ course.capacity and course.available ? "Yes" : "Sorry, no free places for this course"}}</div><br>
 
-					<button class="btn btn-success" type="button" style="width: 30%;">
-						<a href="{{ path('app_booking_new', {"id":course.id}) }}" style="text-decoration: none; color: white;">Submit Booking</a>
-					</button>
+					
+						<a href="{{ path('app_booking_new', {"id":course.id}) }}" style="text-decoration: none; color: white;">
+							<button class="btn btn-success" type="button" style="width: 30%;">Submit Booking</button>
+						</a>
+					
 					<br><br>
 				</div>
 			</div>

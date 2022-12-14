@@ -50,28 +50,6 @@ class CourseController extends AbstractController
 
             }
             $courseRepository->save($course, true);
-            $picture = $form->get('img')->getData();
-
-
-            if ($picture) {
-                $originalFilename = pathinfo($picture->getClientOriginalName(), PATHINFO_FILENAME);
-                // this is needed to safely include the file name as part of the URL
-                $safeFilename = $slugger->slug($originalFilename);
-                $newFilename = $safeFilename . '-' . uniqid() . '.' . $picture->guessExtension();
-                try {
-
-                    // $picture->move(
-                    //     $this->getParameter('picture_directory'),
-                    //     $newFilename
-                    // );
-                    $picture->move($this->getParameter('kernel.project_dir') . '/public/pictures', $newFilename);
-                } catch (FileException $e) {
-                    // ... handle exception if something happens during file upload
-                }
-                // updates the 'brochureFilename' property to store the PDF file name
-                // instead of its contents
-                $course->setImg($newFilename);
-            }
 
             return $this->redirectToRoute('app_course_index', [], Response::HTTP_SEE_OTHER);
         }
