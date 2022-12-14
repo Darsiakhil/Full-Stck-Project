@@ -80,6 +80,10 @@
 					<span><img src="{{ asset ('pictures/date.png') }}">
 						End on :</span>
 					<div>{{ course.endDate ? course.endDate|date('Y-m-d H:i:s') : '' }}</div><br>
+					<div>{{ course.startDate ? course.startDate|date('Y-m-d H:i:s') : '' }}</div><br>
+					<span><img src="{{ asset ('pictures/date.png') }}">
+						Available :</span>
+					<div>{{ course.capacity and course.available ? "Yes" : "No free places for this course"}}</div><br>
 					
 				</div>
 			</div>

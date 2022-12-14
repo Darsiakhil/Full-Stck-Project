@@ -34,6 +34,9 @@ class CourseType extends AbstractType
             ])
             ->add('capacity', NumberType::class, ["attr" => ["class" => "form-control m-1"]])
             ->add('available', ChoiceType::class, [
+                'required' => false,
+                'placeholder' => "Yes",
+                'empty_data' => "1",
                 'choices' => [
                     'Yes' => "1",
                     'No' => "0",
