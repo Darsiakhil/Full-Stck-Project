@@ -5,10 +5,12 @@ namespace App\Controller;
 use App\Entity\Course;
 use App\Form\CourseType;
 use App\Repository\CourseRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\String\Slugger\SluggerInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 #[Route('/admin')]
 class CourseController extends AbstractController
@@ -22,13 +24,31 @@ class CourseController extends AbstractController
     }
 
     #[Route('/new', name: 'app_course_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, CourseRepository $courseRepository): Response
+    public function new(Request $request, CourseRepository $courseRepository, SluggerInterface $slugger): Response
     {
         $course = new Course();
         $form = $this->createForm(CourseType::class, $course);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $image = $form['image']->getData();
+
+            if ($image) {
+                $destination = $this->getParameter('kernel.project_dir').'/public/pictures';
+                $originalFileName = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeFileName = $slugger->slug($originalFileName);
+                $newFileName = $safeFileName.'-'.uniqid().'.'.$image->guessExtension();
+
+                try {
+                    $image->move($destination, $newFileName);
+
+                } catch (FileException $err) {
+                    echo $err;
+                }
+                $course->setImg($newFileName);
+
+            }
             $courseRepository->save($course, true);
 
             return $this->redirectToRoute('app_course_index', [], Response::HTTP_SEE_OTHER);
@@ -49,12 +69,30 @@ class CourseController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'app_course_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Course $course, CourseRepository $courseRepository): Response
+    public function edit(Request $request, Course $course, CourseRepository $courseRepository, SluggerInterface $slugger): Response
     {
         $form = $this->createForm(CourseType::class, $course);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $image = $form['image']->getData();
+
+            if ($image) {
+                $destination = $this->getParameter('kernel.project_dir').'/public/pictures';
+                $originalFileName = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeFileName = $slugger->slug($originalFileName);
+                $newFileName = $safeFileName.'-'.uniqid().'.'.$image->guessExtension();
+
+                try {
+                    $image->move($destination, $newFileName);
+
+                } catch (FileException $err) {
+                    echo $err;
+                }
+                $course->setImg($newFileName);
+
+            }
             $courseRepository->save($course, true);
 
             return $this->redirectToRoute('app_course_index', [], Response::HTTP_SEE_OTHER);
