@@ -1,19 +1,27 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Reviews{% endblock %}
-
-{% block body %}
-<style>
-
-</style>
-<div class="container mt-5 mb-5 bg-danger text-white rounded-4 p-4" style="width: 700px">
-    <div class="container mt-5">
-            {% for review in reviews %}
-                <div class="">
-                    {{ review.fk_user_id_id }}
-                    {{ review.content }}
-                    </div>
-            {% endfor %}
+{% extends 'base.html.twig' %} {% block title %}Reviews{% endblock %} {% block
+body %}
+<style></style>
+<div
+  class="container mt-5 mb-5 bg-danger text-white rounded-4 p-4"
+  style="width: 700px"
+>
+  <div class="container mt-5">
+    {% for review in reviews %}
+    <div class="">
+      <p>{{ review.fk_user_id_id }}</p>
+      <p>{{ review.fk_course_id_id }}</p>
+      <p>{{ review.content }}</p>
     </div>
+    {% endfor %}
+  </div>
 </div>
+
+{# {{ form_start(review) }}
+{{
+  form_row(review.fk_user_id, {
+    label: "Name:"
+  })
+}}
+{{ form_end(review) }} #}
+<button class="btn btn-dark">Add Review</button>
 {% endblock %}
