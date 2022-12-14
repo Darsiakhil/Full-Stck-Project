@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ asset ('css/details.css') }}"/>
+{% endblock %}
+
+{% block title %} Booking {% endblock %}
+
+{% block body %}
+<div class="container">
+	<a class="btn btn-warning my-2" href="{{ path('app_user_index') }}">back to list</a>
+	<h1>Booking</h1>
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            <span>&#x2705;</span> {{ message }}
+        </div>
+    {% endfor %}
+
+		<hr>
+		<div class="row g-0 ">
+			<div class="col-6">
+				<img src="{{ asset ('pictures/' ~ course.img ) }}" class="card mb-4" style="margin-top: 20px; margin-left:15px; max-width:100%">
+			</div>
+			<div class="col-md-6">
+				<div class="card-body" style="max-width: 100%; margin-left:5%;">
+					<div class="card-title">
+						<b>
+							<h1>{{ course.name }}
+							</b>
+						</h1>
+						<p>
+							{{ course.description }}
+						</p>
+						<span><img src="{{ asset ('pictures/certificate.png') }}">
+							Certificates:</span>
+						<div>On completion of the course, you will receive a First Aid certificate.</div>
+						<br><br>
+						<span><img src="{{ asset ('pictures/euro-35.png') }}">
+							Costs:</span>
+						<div>The costs for this course is :
+							{{ course.price }}</div><br>
+						<span><img src="{{ asset ('pictures/date.png') }}">
+							Start on :</span>
+						<div>{{ course.startDate|date('Y-m-d H:i:s') }}</div><br>
+						<span><img src="{{ asset ('pictures/date.png') }}">
+							End on :</span>
+						<div>{{ course.endDate|date('Y-m-d H:i:s') }}</div><br>
+
+						<br><br>
+					</div>
+				</div>
+			</div>
+
+{% endblock %}
