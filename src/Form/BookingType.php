@@ -17,18 +17,19 @@ class BookingType extends AbstractType
     {
         $builder
             ->add('booking_date', DateTimeType::class, [
-                'date_label' => new \DateTime()
+                'date_label' => new \DateTime(), "attr" => ["class" => "form-control m-1"]
             ])
             ->add('fk_user_id', EntityType::class, [
                 'class' => User::class,
+                "attr" => ["class" => "form-control m-1"],
                 'choice_label' => "id"
             ])
             ->add('fk_course_id', EntityType::class, [
                 'label' => 'Course',
+                "attr" => ["class" => "form-control m-1"],
                 'class' => Course::class,
                 'choice_label' => 'name'
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

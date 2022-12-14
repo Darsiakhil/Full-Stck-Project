@@ -24,8 +24,16 @@ block body %}
           {{ booking.getFkUserId().getLastName() }}
         </td>
         <td>
-          <a href="{{ path('app_booking_show', { id: booking.id }) }}">show</a>
-          <a href="{{ path('app_booking_edit', { id: booking.id }) }}">edit</a>
+          <a
+            class="btn btn-dark"
+            href="{{ path('app_booking_show', { id: booking.id }) }}"
+            ><i class="bi bi-view-list pe-2"></i>show</a
+          >
+          <a
+            class="btn btn-warning"
+            href="{{ path('app_booking_edit', { id: booking.id }) }}"
+            ><i class="bi bi-pencil-square pe-2"></i>edit</a
+          >
         </td>
       </tr>
       {% else %}
