@@ -1,10 +1,11 @@
+{% extends 'base.html.twig' %} 
 {% block title %}Course{% endblock %}
 {% block stylesheets %}
 <link rel="stylesheet" type="text/css" href="{{ asset ('css/details.css') }}" />
 {% endblock %}
 
 {% block body %}
-<hr>
+{# <hr>
     <div class="row g-0 ">
         <div class="col-6">
             <img src="{{ asset ('pictures/' ~ course.img ) }}" class="card mb-4" style="margin-top: 20px; margin-left:15px; max-width:100%">
@@ -44,61 +45,52 @@
 
    <button class="btn btn-danger" type="button" style="width: 30%;"><a href="{{ path('app_course_delete', {'id': course.id}) }}" style="text-decoration: none; color: white;">Delete</a></button><br>
 </div>
-    {{ include('course/_delete_form.html.twig') }}
-{# <br>
-<div class="container">
+    {{ include('course/_delete_form.html.twig') }} #}
 
-	{% block stylesheets %}
-		<link rel="stylesheet" type="text/css" href="{{ asset ('css/details.css') }}"/>
-	{% endblock %}
-		<hr>
-		<div class="row g-0 ">
-			<div class="col-6">
-				<a class="btn btn-warning" style="width: 30%;" href="{{ path('app_course_index') }}" style="text-decoration: none; color: white;"><i class="bi bi-list-ul pe-2"></i>Back to liste</a>
-				<img src="{{ asset ('pictures/' ~ course.img ) }}" class="card mb-4" style="margin-top: 20px; margin-left:15px; max-width:100%">
-			</div>
-			<div class="col-md-6">
-				<div class="card-body" style="max-width: 100%; margin-left:5%;">
-					<div class="card-title">
-						<b>
-							<h1>{{ course.name }}
-							</b>
-						</h1>
-						<p>
-							{{ course.description }}
-						</p>
-						<span><img src="{{ asset ('pictures/certificate.png') }}">
-							Certificates:</span>
-						<div>On completion of the course, you will receive a First Aid certificate.</div>
-						<br><br>
-						<span><img src="{{ asset ('pictures/euro-35.png') }}">
-							Costs:</span>
-						<div>The costs for this course is :
-							{{ course.price }}</div><br>
-						<span><img src="{{ asset ('pictures/date.png') }}">
-							Start on :</span>
-						<div>{{ course.startDate ? course.startDate|date('Y-m-d H:i:s') : '' }}</div><br>
-						<span><img src="{{ asset ('pictures/date.png') }}">
-							End on :</span>
-						<div>{{ course.endDate ? course.endDate|date('Y-m-d H:i:s') : '' }}</div><br>
-						
-					</div>
+<div class="container my-4">
+
+	<div class="row g-0 ">
+		<div class="col-6">
+			<a class="btn btn-warning" style="width: 30%;" href="{{ path('app_course_index') }}" style="text-decoration: none; color: white;"><i class="bi bi-list-ul pe-2"></i>Back to liste</a>
+			<img src="{{ asset ('pictures/' ~ course.img ) }}" class="card mb-4" style="margin-top: 20px; margin-left:15px; max-width:100%">
+		</div>
+		<div class="col-md-6">
+			<div class="card-body" style="max-width: 100%; margin-left:5%;">
+				<div class="card-title">
+					<b>
+						<h1>{{ course.name }}
+						</b>
+					</h1>
+					<p>
+						{{ course.description }}
+					</p>
+					<span><img src="{{ asset ('pictures/certificate.png') }}">
+						Certificates:</span>
+					<div>On completion of the course, you will receive a First Aid certificate.</div>
+					<br><br>
+					<span><img src="{{ asset ('pictures/euro-35.png') }}">
+						Costs:</span>
+					<div>The costs for this course is :
+						{{ course.price }}</div><br>
+					<span><img src="{{ asset ('pictures/date.png') }}">
+						Start on :</span>
+					<div>{{ course.startDate ? course.startDate|date('Y-m-d H:i:s') : '' }}</div><br>
+					<span><img src="{{ asset ('pictures/date.png') }}">
+						End on :</span>
+					<div>{{ course.endDate ? course.endDate|date('Y-m-d H:i:s') : '' }}</div><br>
+					
 				</div>
-			</div> #} 
-
-
-			{# <div class="container">
-
-	<a class="btn add text-white" type="button" style="width: 30%; background-color:#48279a !important;" href="{{ path('app_course_new')}}" style="text-decoration: none; color: white;"><i class="bi bi-file-earmark-plus pe-2"></i>Add new course</a>
-	<a class="btn btn-primary" type="button" style="width: 30%;" href="{{ path('app_course_edit', {'id': course.id}) }}" style="text-decoration: none; color: white;"><i class="bi bi-pencil-square pe-2"></i>Edit</a>
-	<a class="btn btn-danger" type="button" style="width: 30%;" href="{{ path('app_course_delete', {'id': course.id}) }}" style="text-decoration: none; color: white;"><i class="bi bi-trash3-fill pe-2"></i>Delete</a>
-</div>
-		
 			</div>
-			{# {{ include('course/_delete_form.html.twig') }} #}
-			{# <br>
-			<div class="container">
-				<br> #}
+		</div> 
+
+	<div class="container-fluid text-center">
+		<div class="row row justify-content-between">
+			<a class="btn add text-white" type="button" style="width: 30%; background-color:#48279a !important;" href="{{ path('app_course_new')}}" style="text-decoration: none; color: white;"><i class="bi bi-file-earmark-plus pe-2"></i>Add new course</a>
+			<a class="btn btn-primary" type="button" style="width: 30%;" href="{{ path('app_course_edit', {'id': course.id}) }}" style="text-decoration: none; color: white;"><i class="bi bi-pencil-square pe-2"></i>Edit</a>
+			<a class="btn btn-danger" type="button" style="width: 30%;" href="{{ path('app_course_delete', {'id': course.id}) }}" style="text-decoration: none; color: white;"><i class="bi bi-trash3-fill pe-2"></i>Delete</a>
+		</div>	
+	</div>	
+</div>
 
  
 {% endblock %}
