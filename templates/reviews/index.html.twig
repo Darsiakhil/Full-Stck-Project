@@ -4,23 +4,22 @@ body %}
 <style></style>
 
 <h1 class="mt-5 text-center">Reviews</h1>
-  <div class="container mt-5 mb-5 bg-danger text-white rounded-4 p-4"
-  style="width: 700px">
-    {% for value in reviews %}
-    <div class="">
-      <p><b>Name:</b> {{ value.fkUserId.firstName }}</p>
-      <p><b>Course:</b> {{ value.fkCourseId.name }}</p>
-      <p>{{ value.content }}</p>
-    </div>
-    {% endfor %}
+<div
+  class="container mt-5 mb-5 bg-danger text-white rounded-4 p-4"
+  style="width: 700px"
+>
+  {% for value in reviews %}
+  <div class="">
+    <p><b>Name:</b> {{ value.fkUserId.firstName }}</p>
+    <p><b>Course:</b> {{ value.fkCourseId.name }}</p>
+    <p>{{ value.content }}</p>
   </div>
-  {% if app.user and app.user.getRoles() == ["ROLE_USER"] %}
-      <div class="" style="width: 300px; margin: 0 auto">
-          {{ form_start(review) }}
-          {{
-              form_widget(review)
-            }}
-            {{ form_end(review) }}
-        </div>
-{% endif %}
-{% endblock %}
+  {% endfor %}
+</div>
+{% if app.user and app.user.getRoles() == ["ROLE_USER"] %}
+<div class="" style="width: 300px; margin: 0 auto">
+  {{ form_start(review) }}
+  {{ form_widget(review) }}
+  {{ form_end(review) }}
+</div>
+{% endif %} {% endblock %}

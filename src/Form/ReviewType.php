@@ -19,20 +19,24 @@ class ReviewType extends AbstractType
     {
         $builder
 
-            ->add('fk_user_id', EntityType::class, [ "attr" => ["class" => "mb-3"],
+            ->add('fk_user_id', EntityType::class, [
+                "attr" => ["class" => "form-control mb-3"],
                 'class' => User::class,
                 'choice_label' => 'firstName',
                 'label' => 'User:'
             ])
-            ->add('fk_course_id', EntityType::class, [ "attr" => ["class" => "mb-3"],
+            ->add('fk_course_id', EntityType::class, [
+                "attr" => ["class" => "form-control mb-3"],
                 'choice_label' => 'name',
                 'class' => Course::class,
                 'label' => 'Course:'
             ])
-            ->add('content', TextareaType::class, [ "attr" => ["style" => "width: 300px"],
-                'label' => ' '
+            ->add('content', TextareaType::class, [
+                "attr" => ["class" => "form-control mb-3", "style" => "width: 300px"],
+                'label' => 'Comment:'
             ])
-            ->add('Add', SubmitType::class, [ "attr" => ["class" => "btn btn-dark mt-3 mb-5"],
+            ->add('Add', SubmitType::class, [
+                "attr" => ["class" => "btn btn-dark mt-3 mb-5"],
                 'label' => 'Add Review'
             ]);
     }
