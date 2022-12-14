@@ -32,7 +32,7 @@ class ReviewType extends AbstractType
             ->add('content', TextareaType::class, [ "attr" => ["style" => "width: 300px"],
                 'label' => ' '
             ])
-            ->add('Add', SubmitType::class, [ "attr" => ["class" => "btn btn-dark mt-3"],
+            ->add('Add', SubmitType::class, [ "attr" => ["class" => "btn btn-dark mt-3 mb-5"],
                 'label' => 'Add Review'
             ]);
     }
