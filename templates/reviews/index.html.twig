@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reviews{% endblock %}
+
+{% block body %}
+<style>
+
+</style>
+<div class="container mt-5 mb-5 bg-danger text-white rounded-4 p-4" style="width: 700px">
+    <div class="container mt-5">
+            {% for review in reviews %}
+                <div class="">
+                    {{ review.fk_user_id_id }}
+                    {{ review.content }}
+                    </div>
+            {% endfor %}
+    </div>
+</div>
+{% endblock %}

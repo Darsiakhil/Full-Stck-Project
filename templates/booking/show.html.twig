@@ -9,18 +9,23 @@
         <tbody>
             <tr>
                 <th>Id</th>
-                <td>{{ booking.id }}</td>
+                <th>Booking_date</th>
+                <th>Course Id</th>
+                <th>User</th>
+                <th>actions</th>
             </tr>
             <tr>
-                <th>Booking_date</th>
-                <td>{{ booking.bookingDate ? booking.bookingDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ booking.id }}</td>
+                <td>{{ booking.bookingDate|date('Y-m-d H:i:s') }}</td>
+                <td>{{ booking.getFkCourseId().id }}</td>
+                <td>{{ booking.getFkUserId().getFirstName() }} {{ booking.getFkUserId().getLastName() }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('app_booking_index') }}">back to list</a>
+    <a href="{{ path('app_booking_index') }}">Back to list</a>
 
-    <a href="{{ path('app_booking_edit', {'id': booking.id}) }}">edit</a>
+    <a href="{{ path('app_course_edit', {'id': booking.getFkCourseId().getId()}) }}">Confirm</a>
 
     {{ include('booking/_delete_form.html.twig') }}
 {% endblock %}

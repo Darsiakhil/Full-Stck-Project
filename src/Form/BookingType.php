@@ -17,11 +17,11 @@ class BookingType extends AbstractType
     {
         $builder
             ->add('booking_date', DateTimeType::class, [
-                'date' => new \DateTime()
+                'date_label' => new \DateTime()
             ])
             ->add('fk_user_id', EntityType::class, [
                 'class' => User::class,
-                'choice_label' => "first_name"." "."last_name"
+                'choice_label' => "id"
             ])
             ->add('fk_course_id', EntityType::class, [
                 'label' => 'Course',

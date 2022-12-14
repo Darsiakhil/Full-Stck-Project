@@ -16,11 +16,12 @@ class CourseType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name', TextType::class, ["attr" => ["placeholder" => "Name", "class" => "form-control m-1"]])
+            ->add('name', TextType::class, ["attr" => ["placeholder" => "Course Name", "class" => "form-control m-1"]])
             ->add('description', TextType::class, ["attr" => ["placeholder" => "Description", "class" => "form-control m-1"]])
             ->add('start_date', DateTimeType::class, ["attr" => ["class" => "form-control m-1"]])
             ->add('end_date', DateTimeType::class, ["attr" => ["class" => "form-control m-1"]])
             ->add('price', NumberType::class, ["attr" => ["class" => "form-control m-1"]])
+            ->add('img', TextType::class, ["attr" => ["placeholder" => "Image", "class" => "form-control m-1"]])
             ->add('capacity', NumberType::class, ["attr" => ["class" => "form-control m-1"]])
             ->add('available', ChoiceType::class, [
                 'choices' => [

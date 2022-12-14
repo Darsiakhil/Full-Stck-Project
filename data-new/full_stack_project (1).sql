@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 13, 2022 at 04:49 PM
+-- Generation Time: Dec 13, 2022 at 05:09 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -42,16 +42,23 @@ CREATE TABLE `booking` (
 
 CREATE TABLE `course` (
   `id` int(11) NOT NULL,
-  `fk_trainer_id_id` int(11) NOT NULL,
+  `fk_trainer_id_id` int(11) DEFAULT NULL,
   `description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `start_date` datetime NOT NULL,
   `end_date` datetime NOT NULL,
   `price` decimal(10,2) NOT NULL,
   `capacity` int(11) NOT NULL,
   `available` tinyint(1) NOT NULL,
-  `img` int(11) NOT NULL,
-  `name` int(11) NOT NULL
+  `img` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `course`
+--
+
+INSERT INTO `course` (`id`, `fk_trainer_id_id`, `description`, `start_date`, `end_date`, `price`, `capacity`, `available`, `img`, `name`) VALUES
+(1, NULL, 'Our First Aid for Mental Health Course is available either at your place of work on a day of your choosing or at any of our training venues across the UK or can be delivered virtually with one of our qualified trainers.\n\n', '2022-12-15 09:00:00', '2023-12-01 16:00:00', '20.00', 100, 0, 'contact-bg.png', 'First Course');
 
 -- --------------------------------------------------------
 
@@ -72,7 +79,13 @@ CREATE TABLE `doctrine_migration_versions` (
 INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_time`) VALUES
 ('DoctrineMigrations\\Version20221207104819', '2022-12-07 11:48:56', 143),
 ('DoctrineMigrations\\Version20221207105202', '2022-12-07 11:52:11', 30),
-('DoctrineMigrations\\Version20221207105636', '2022-12-07 11:56:42', 49);
+('DoctrineMigrations\\Version20221207105636', '2022-12-07 11:56:42', 49),
+('DoctrineMigrations\\Version20221208204414', '2022-12-08 21:44:28', 185),
+('DoctrineMigrations\\Version20221208205800', '2022-12-08 21:58:14', 109),
+('DoctrineMigrations\\Version20221209123712', '2022-12-09 13:37:45', 616),
+('DoctrineMigrations\\Version20221209124008', '2022-12-09 13:40:34', 44),
+('DoctrineMigrations\\Version20221210104330', '2022-12-10 11:44:46', 643),
+('DoctrineMigrations\\Version20221210104930', '2022-12-10 11:49:40', 70);
 
 -- --------------------------------------------------------
 
@@ -98,9 +111,9 @@ CREATE TABLE `messenger_messages` (
 
 CREATE TABLE `review` (
   `id` int(11) NOT NULL,
+  `content` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `fk_user_id_id` int(11) NOT NULL,
-  `fk_course_id_id` int(11) NOT NULL,
-  `content` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+  `fk_course_id_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -139,9 +152,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `email`, `roles`, `password`, `first_name`, `last_name`, `phone`, `address`) VALUES
-(1, 'test@mail.com', '[]', '$2y$13$esMQG5sv6QIio8qxFdy.bOkAPyCDNH3WAUa.foWaqg3SV8aY9C4Wu', 'test', 'test', NULL, NULL),
-(3, 'test3@mail..com', '[]', '$2y$13$/t3mM.u65apdw/lYjqjoVesIJ1VFS29hNUCuBg4srkXo461drAMaq', 'test3', 'test3', NULL, NULL),
-(4, 'test2@mail.com', '[]', '$2y$13$vX6lKshfyTcaFjQdKBCr2.bir7MbzhbXVb854l4BLLwzXpnsVNJz.', 'test', 'test', '123', 'tets');
+(1, 'arwa@gmail.com', '[]', '$2y$13$0eIZewRXUQRDowmc0qTM7.EXjWEnF9J/bH45Yk1hoCwFHXNk0gyMO', 'a', 'a', '123654', 'a'),
+(2, 'ta@gmail.com', '[\"ROLE_ADMIN\"]', '$2y$13$6pnGJjd8pIMDpm/WNQ4H7udbyoNWs7mq1NUJch5F2fWOGE0WTNfhi', 'ta', 'lkk', '123654', 'a');
 
 --
 -- Indexes for dumped tables
@@ -225,7 +237,7 @@ ALTER TABLE `messenger_messages`
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `trainer`
@@ -237,7 +249,7 @@ ALTER TABLE `trainer`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables

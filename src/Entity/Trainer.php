@@ -31,6 +31,12 @@ class Trainer
     #[ORM\OneToMany(mappedBy: 'fk_trainer_id', targetEntity: Course::class)]
     private Collection $courses;
 
+    #[ORM\Column(length: 255)]
+    private ?string $name = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $photo = null;
+
     public function __construct()
     {
         $this->courses = new ArrayCollection();
@@ -115,6 +121,30 @@ class Trainer
                 $course->setFkTrainerId(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getPhoto(): ?string
+    {
+        return $this->photo;
+    }
+
+    public function setPhoto(?string $photo): self
+    {
+        $this->photo = $photo;
 
         return $this;
     }

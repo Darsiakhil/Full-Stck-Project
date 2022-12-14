@@ -1,87 +1,193 @@
-/* *,
-*::before,
-*::after {
-    margin: 0;
-    padding: 0;
+* {
+    /* margin: 0;
+    padding: 0; */
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
-} */
-
-/* html {
-    font-size: 62.5%;
 }
 
-body {
-    font-size: 2rem;
-    font-family: Roboto, sans-serif;
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
-
-.container1 {
-    padding: 3rem;
-    width: 500px;
-    height: 500px;
-    position: relative;
-    perspective: 1500px;
-}
-
-.card {
-    color: white;
-    background: rgba(0, 0, 0, 0.3);
-    position: absolute;
-    width: 250px;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.15),
-        0 10px 20px 0px rgba(0, 0, 0, 0.05),
-        -3px -3px 10px 0px rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(5px);
-    transform: rotateY(-20deg) rotateX(20deg) scale(0.85);
-    transition: all 0.3s;
-}
-
-.card:hover {
-    transform: rotateY(0deg) rotateX(0deg) scale(1);
-    box-shadow: 0 5px 10px 2px rgba(0, 0, 0, 0.15),
-        0 10px 20px 5px rgba(0, 0, 0, 0.05),
-        -3px -3px 10px 3px rgba(255, 255, 255, 0.15);
-    z-index: 5;
-}
-
-.card1 {
-    top: 15%;
-    z-index: 2;
-    left: 28%;
-}
-
-.card2 {
-    top: 35%;
-    z-index: 3;
-    left: 8%;
-}
-
-.card3 {
-    top: 50%;
-    z-index: 4;
-    right: 5%;
-}
-
-.question {
-    font-size: 2.2rem;
-    font-weight: 900;
-    margin-bottom: 0.5rem;
-}
-
-.option {
+h1 {
+    font-size: 2.5rem;
+    font-family: 'Montserrat';
+    font-weight: normal;
+    color: #444;
     text-align: center;
-    font-size: 1.6rem;
-    padding: 0.8rem;
-    margin: 0.5rem 0;
-    background: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(2px);
-    border-radius: 4px;
-    color: #eee;
+    margin: 2rem 0;
+}
+
+.wrapper {
+    width: 90%;
+    margin: 20px 20px;
+    max-width: 100%;
+}
+
+ .cols#trainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.col#trainer {
+    /* width: calc(25% - 2rem); */
+    margin: 20px;
+    cursor: pointer;
+}
+
+.container#trainer {
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
+} 
+
+.front,
+.back {
+    background-size: cover;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    background-position: center;
+    -webkit-transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    -o-transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1), -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    text-align: center;
+    min-height: 280px;
+    height: auto;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+.back {
+    background: #cedce7;
+    background: -webkit-linear-gradient(45deg, #cedce7 0%, #596a72 100%);
+    background: -o-linear-gradient(45deg, #cedce7 0%, #596a72 100%);
+    background: linear-gradient(45deg, #cedce7 0%, #596a72 100%);
+}
+
+.front:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    content: '';
+    display: block;
+    opacity: .6;
+    background-color: #000;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 10px;
+}
+
+.container#trainer:hover .front,
+.container#trainer:hover .back {
+    -webkit-transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    -o-transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1), -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.inner {
+    -webkit-transform: translateY(-50%) translateZ(60px) scale(0.94);
+    transform: translateY(-50%) translateZ(60px) scale(0.94);
+    top: 50%;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    padding: 2rem;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    outline: 1px solid transparent;
+    -webkit-perspective: inherit;
+    perspective: inherit;
+    z-index: 2;
+}
+
+.container#trainer .back {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.container#trainer .front {
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.container#trainer:hover .back {
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.container#trainer:hover .front {
+    -webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.front .inner p {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.front .inner p:after {
+    content: '';
+    width: 4rem;
+    height: 2px;
+    position: absolute;
+    background: #C6D4DF;
+    display: block;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    bottom: -.75rem;
+}
+
+.front .inner span {
+    color: rgba(255, 255, 255, 0.7);
+    font-family: 'Montserrat';
+    font-weight: 300;
+}
+
+@media screen and (max-width: 64rem) {
+    .col#trainer {
+        width: calc(33.333333% - 2rem);
+    }
+}
+
+@media screen and (max-width: 48rem) {
+    .col#trainer {
+        width: calc(50% - 2rem);
+    }
+}
+
+@media screen and (max-width: 32rem) {
+    .col#trainer {
+        width: 100%;
+        margin: 0 0 2rem 0;
+    }
 }
