@@ -14,7 +14,6 @@ use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Validator\Constraints\File;
 
 
@@ -32,7 +31,7 @@ class CourseType extends AbstractType
                 "attr" => ["placeholder" => "Image", "class" => "form-control m-1"],
                 "mapped" => false,
                 "required" => false,
-                ])
+            ])
             ->add('capacity', NumberType::class, ["attr" => ["class" => "form-control m-1"]])
             ->add('available', ChoiceType::class, [
                 'choices' => [
