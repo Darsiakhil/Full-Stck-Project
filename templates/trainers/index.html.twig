@@ -8,50 +8,7 @@
 {% endblock %}
 
 {% block body %}
-	{# <div class="container1" style="width: 100%;"> #}
-	{# <div class="card1"> #}
-	{# <div class="content1"> #}
-	{# <div class="front">
-		      <img src="{{ asset ('pictures/bg.jpg') }}" alt="">
-		    </div>
-		    <div class="back">
-		     hello from back
-		    </div> #}
-	{# </div>
-		</div>
-		</div> #}
 
-
-	{# <table class="table">
-		        <thead>
-		            <tr>
-		                <th>Id</th> #}
-	{# <th>userId</th> #}
-	{# <th>information</th>
-		                <th>specialty</th>
-		                <th>experience</th>
-		                </tr>
-		        </thead>
-		        <tbody>
-		        {% for trainers in trainer %}
-		            <tr>
-		                <td>{{ trainers.id }}</td> #}
-	{# <td>{{ trainers.fk_user_id_id }}</td> #}
-	{# <td>{{ trainers.information }}</td>
-		                <td>{{ trainers.specialty }}</td>
-		                <td>{{ trainers.	experience }}</td> #}
-	{# <td>
-		                    <a href="{{ path('app_course_show', {'id': course.id}) }}">show</a>
-		                    <a href="{{ path('app_course_edit', {'id': course.id}) }}">edit</a>
-		                </td> #}
-	{# </tr>
-		        {% else %}
-		            <tr>
-		                <td colspan="8">no records found</td>
-		            </tr>
-		        {% endfor %}
-		        </tbody>
-		    </table>  #}
 		<div class="wrapper"> <div class="cols" id="trainer">
 			{% for trainers in trainer %}
 				<div class="col" ontouchstart="this.classList.toggle('hover');" id="trainer">
@@ -63,7 +20,7 @@
 
 							</div>
 						</div>
-						<div class="back">
+						<div class="back" >
 							<div class="inner">
 								<p>{{ trainers.information }}</p>
 								<p>{{ trainers.specialty }}</p>
