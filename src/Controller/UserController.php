@@ -3,7 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Course;
+use App\Repository\BookingRepository;
 use App\Repository\CourseRepository;
+use Doctrine\ORM\Mapping\Id;
+use Symfony\Component\Security\Core\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -19,10 +22,13 @@ class UserController extends AbstractController
     }
 
     #[Route('/user/profile', name:'app_user_profile')]
-    public function profile(): Response
+    public function profile(BookingRepository $bookingRepository, Security $security): Response
     {
-
-        return $this->render('/user/profile.html.twig');
+        $user = $security->getUser();
+        $bookings = $bookingRepository->findBy(['fk_user_id'=>$user]);
+        return $this->render('/user/profile.html.twig', [
+            'bookings'=>$bookings
+        ]);
     }
 
     #[Route('/user/course_details/{id}', name: 'app_user_course_details', methods: ['GET'])]

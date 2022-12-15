@@ -23,7 +23,9 @@ class RegistrationFormType extends AbstractType
             ->add('last_name', TextType::class, ["attr" => ["placeholder" => "Last name", "class" => "form-control m-1"]])
             ->add('email', TextType::class, ["attr" => ["placeholder" => "Email", "class" => "form-control m-1"]])
             ->add('address', TextType::class, ["attr" => ["placeholder" => "Address", "class" => "form-control m-1"]])
-            ->add('phone', TextType::class, ["attr" => ["placeholder" => "Phone", "class" => "form-control m-1"]])
+            ->add('phone', TextType::class, [
+                "attr" => ["placeholder" => "Phone", "class" => "form-control m-1"],
+                "required" => false])
             ->add('agreeTerms', CheckboxType::class, [
                 "attr" => ["class" => "form-check-input m-1", "type" => "checkbox", "value" => "", "id" => "flexCheckDefault"]])
             ->add('agreeTerms', CheckboxType::class, [
