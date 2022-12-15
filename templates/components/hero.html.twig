@@ -1,0 +1,22 @@
+{% block stylesheets %} <link rel="stylesheet" href="{{
+  asset("css/hero.css")
+}}"> {% endblock %} {% block hero %}
+<div class="hero">
+  <div class="hero-text">
+    <h1>
+      Best First Aid Courses
+      <br />
+      with professional trainers!
+    </h1>
+    <div class="mt-4">
+      <a
+        class="btn btn-outline-light btn-lg"
+        href="{{ url('app_user_index') }}"
+      >
+        Check out our training courses!
+      </a>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -106,14 +106,25 @@ body {
     justify-content: center;
 } */
 
-.card {
+/* .card {
     width: 460px; 
     height: 540px;
     margin: 40px 10px;
     padding: 1rem;
     /* cursor: pointer; */
-    background-image: linear-gradient(to right, #746687, #e8deed);
+    /* background-image: linear-gradient(to right, #746687, #e8deed);
     background-color: #746687;
+}  */
+
+
+.card {
+    width: 460px;
+    height: 540px;
+    margin: 40px 10px;
+    padding: 1rem;
+    /* cursor: pointer; */
+    background-image: linear-gradient(to right, #f15d6a, #eddede);
+    background-color: #ee6262;
 }
 
 .card img {
