@@ -39,6 +39,14 @@ body %} {% block stylesheets %}
           <th>Phone</th>
           <td>{{ app.user.phone }}</td>
         </tr>
+        <th>My Bookings: </th>
+        {% for booking  in bookings %}
+        <tr>
+          <th>Booking Date </th><td>{{ booking.getBookingDate()|date() }}</td>
+          <th>Course:</th><td> {{booking.getFkCourseId().name}}</td>
+        </tr>
+        {% endfor %}
+
       </tbody>
     </table>
   </div>
