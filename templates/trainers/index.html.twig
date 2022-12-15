@@ -54,12 +54,10 @@
 		    </table>  #}
 		<div class="wrapper"> <div class="cols" id="trainer">
 			{% for trainers in trainer %}
-		
-
 				<div class="col" ontouchstart="this.classList.toggle('hover');" id="trainer">
 					<div class="container" id="trainer">
 						<div class="front">
-							<img src="{{ asset ('pictures/' ~ trainers.photo ) }}"/>
+							<img src="{{ asset ('pictures/' ~ trainers.photo ) }}" style="width:600px ;"/>
 							<div class="inner">
 								<p>{{ trainers.name }}</p>
 
@@ -69,7 +67,7 @@
 							<div class="inner">
 								<p>{{ trainers.information }}</p>
 								<p>{{ trainers.specialty }}</p>
-								<p>{{ trainers.experience }}</p>
+								{# <p>{{ trainers.experience }}</p> #}
 							</div>
 						</div>
 					</div>

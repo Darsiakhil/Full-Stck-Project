@@ -43,10 +43,17 @@ value="{{ csrf_token('authenticate') }}"
     <button class="btn btn-dark my-2 mt-3" type="submit">
         Sign in
     </button>
+   
 </div>
 {% endif %}
+ 
 </form>
-
+<div style="margin-left:10px;" >
+Don't have an account please
+<a href="{{ url('app_register')}}"><button class="btn btn-dark my-2 mt-3">
+        Register
+    </button></a>
+    </div>
     {#
         Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
         See https://symfony.com/doc/current/security/remember_me.html
