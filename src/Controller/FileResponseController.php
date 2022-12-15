@@ -25,6 +25,6 @@ class FileResponseController extends AbstractController
     public function download(): BinaryFileResponse
     {
         // send the file contents and force the browser to download it
-        return $this->file($this->getParameter('kernel.project_dir') . '/public/downloads/test.pdf');
+        return $this->file($this->getParameter('kernel.project_dir').'/public/downloads/test.pdf');
     }
 }
